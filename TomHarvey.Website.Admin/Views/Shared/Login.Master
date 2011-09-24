@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %><!DOCTYPE html>
+<html>
+    <head>
+        <title>WeBuildStuff <%=ViewData["ProductName"] %> | <asp:ContentPlaceHolder ID="HeaderTitle" runat="server" /></title>
+        <style type="text/css">
+         body { background: #ACBEEA; font-family: verdana, arial, sans-serif; font-size: 12px }
+         #container { margin: auto; padding: 15% 0; width: 532px }
+         #header { background: #7393DD; border: 3px solid #4B4B4B; border-bottom: 0; color: #FFF; height: 60px; margin: auto; width: 512px }
+         #headerlogo { float: left; padding: 16px 0 0 16px }
+         #headerstatus { float: right; padding: 8px; text-align: right }
+         #breadcrumb { background: #303030; color: #FFF; font-size: 11px; padding: 4px 12px }
+         #breadcrumbbase { background: url(/content/images/breadcrumbbase.png) no-repeat; height: 14px }
+         #content { background: #FFF; border: 3px solid #4B4B4B; border-top: 0; border-bottom: 0; margin: auto; min-height: 100px; padding: 5px 16px; width: 480px }
+         #footer { background: #FFF; border: 3px solid #4B4B4B; border-top: 0; font-size: 10px; margin: auto; padding: 16px; width: 480px }
+         #footer hr { margin: 0; padding: 0; margin-bottom: 3px; text-align: center }
+         
+         /* Typography */
+         #header h1, #header h2 { display: none }
+         .forgotpasswordlink { float: left; margin-top: 18px }
+         
+         /* Forms */
+         label { font-family: verdana, arial, sans-serif; font-size: 11px }
+         input { background: #F4F4F4; border: 2px solid #DADADA; color: #2A0000; font-family: calibri, verdana, arial, sans-serif; font-size: 15px; height: 24px; margin: auto; margin-top: 6px; padding: 2px 8px; width: 96% }
+         button { background: #F4F4F4; border: 2px solid #DCDCDC; color: #4B4B4B; float: right; font-family: calibri, verdana, arial, sans-serif; font-size: 18px; padding: 2px 18px }
+         
+         /* Validation Messages */
+         h4 { margin: 0; padding: 0 }
+         .warning { background: #FFF; border: 2px solid #DADADA; margin: auto; padding: 4px; width: 460px }
+         .warningimg { float: left; padding: 4px; width: 40px }
+         .warningmessage { float: right; width: 410px }
+         .warningmessage p { font-size: 10px }
+         .clear { clear: both }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div id="headerlogo">
+                    <img src="/content/images/webuildstuff.png" alt="WeBuildStuff" title="WeBuildStuff" />
+                    <h1>WeBuildStuff</h1>
+                    <h2><%=ViewData["ProductName"] %></h2>
+                </div>
+                <div id="headerstatus">
+                    <%=ViewData["ProductName"] %><br />
+                    <em>v<%=ViewData["ProductVersion"] %></em>
+                </div>
+            </div>
+            <div class="clear"></div>
+
+            <div id="breadcrumb">
+                <asp:ContentPlaceHolder ID="PageBreadcrumb" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <div id="breadcrumbbase"></div>
+            
+            <div id="content">
+                <asp:ContentPlaceHolder ID="PageContent" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+            <div id="footer">
+                <hr />
+                We log all login attempts for security purposes (incl. your IP Address: <%:ViewData["IpAddress"] %>)
+            </div>
+        </div>
+
+    </body>
+</html>
