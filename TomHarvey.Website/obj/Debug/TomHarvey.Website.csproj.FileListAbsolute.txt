@@ -1,5 +1,0 @@
-C:\Development\TomHarvey.Website\TomHarvey.Website\bin\TomHarvey.Website.dll
-C:\Development\TomHarvey.Website\TomHarvey.Website\bin\TomHarvey.Website.pdb
-C:\Development\TomHarvey.Website\TomHarvey.Website\obj\Debug\ResolveAssemblyReference.cache
-C:\Development\TomHarvey.Website\TomHarvey.Website\obj\Debug\TomHarvey.Website.dll
-C:\Development\TomHarvey.Website\TomHarvey.Website\obj\Debug\TomHarvey.Website.pdb
