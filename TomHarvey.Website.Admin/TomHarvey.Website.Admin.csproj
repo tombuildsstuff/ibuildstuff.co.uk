@@ -82,6 +82,9 @@
     <Reference Include="WeBuildStuff.AdminClientCore">
       <HintPath>..\..\WeBuildStuff.AdminClientCore\WeBuildStuff.AdminClientCore\bin\Debug\WeBuildStuff.AdminClientCore.dll</HintPath>
     </Reference>
+    <Reference Include="WeBuildStuff.Dashboard">
+      <HintPath>..\..\WeBuildStuff.Dashboard\WeBuildStuff.Dashboard\bin\WeBuildStuff.Dashboard.dll</HintPath>
+    </Reference>
     <Reference Include="WeBuildStuff.PageManagement">
       <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement\bin\WeBuildStuff.PageManagement.dll</HintPath>
     </Reference>
@@ -120,6 +123,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,7 +150,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
