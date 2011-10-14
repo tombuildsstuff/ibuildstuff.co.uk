@@ -70,9 +70,6 @@
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Configuration" />
-    <Reference Include="TomHarvey.Admin.ErrorLogging">
-      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.ErrorLogging\bin\TomHarvey.Admin.ErrorLogging.dll</HintPath>
-    </Reference>
     <Reference Include="TomHarvey.Core">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
     </Reference>

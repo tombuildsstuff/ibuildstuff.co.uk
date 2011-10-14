@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tom Harvey's Website</title>
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <style type="text/css">
+            body { font-family: verdana, arial, sans-serif; font-size: 12px; margin: 0; padding: 0 }
+            
+            /* header */
+            header { background: #C00 /* or 316ac5 - can change dynamically dependent on the time of year? */; color: #FFF; height: 60px; margin-bottom: 8px }
+            #logo { float: left; margin-top: 7px; width: 250px }
+            #logo h2, #logo h3 { display: none }
+            .container { margin: auto; width: 980px }
+            .clear { clear: both }
+            
+            /* titles TODO: proper fonts */
+            h1, h2, h3 { color: #333; margin: 4px 0; font-variant: small-caps }
+            h1 { font-family: Segoe UI; font-size: 18px }
+            h2 {  }
+            h3 { color: #444; font-family: Calibri; font-size: 16px }
+            
+            /* navigation */
+            header nav { float: right }
+            header nav ul { list-style-type: none; margin: 0; padding: 0; margin-top: 4px }
+            header nav ul li { border: 1px solid #FFF; background: #CCC; float: left; padding: 6px 12px; margin-right: 4px; height: 38px }
+            
+            /* content */
+            #content { float: left; width: 700px }
+            #sidebar { float: right; width: 250px }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div id="logo">
+                    <img src="/content/images/logo.png" alt="Tom Harvey's Logo" title="Tom Harvey's Logo" />
+                    <h2>iBuildStuff</h2>
+                    <h3>Tom Harvey's Personal Website</h3>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">home page</a></li>
+                        <li><a href="#">portfolio</a></li>
+                        <li><a href="#">services</a></li>
+                        <li><a href="#">open source</a></li>
+                        <li><a href="#">get in touch</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="clear"></div>
+        </header>
+
+        <div class="container">
+            <section id="content">
+                <h1>Page Title Goes Here</h1>
+
+
+            </section>
+            <div id="sidebar">
+                
+                <!-- TODO: blog specific entries could have like a useful sidebar here for extra links etc. -->
+                <!-- TODO: home page could have twitter contents, calls to action etc. -->
+                <h3>Twitter / Useful Links</h3>
+
+
+            </div>
+            <div class="clear"></div>
+
+            <footer>
+               Tom Harvey &copy; 2011. All Rights Reserved
+            </footer>
+        </div>
+    </body>
+</html>
