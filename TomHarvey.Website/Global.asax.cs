@@ -15,12 +15,12 @@ namespace TomHarvey.Website
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("PortfolioElement", "portfolio/{name}", new { controller = "portfolio", action = "details" });
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
         }
 
         protected void Application_Start()

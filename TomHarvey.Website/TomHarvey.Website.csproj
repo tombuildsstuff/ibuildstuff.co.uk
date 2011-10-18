@@ -60,6 +60,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GetInTouchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PortfolioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
