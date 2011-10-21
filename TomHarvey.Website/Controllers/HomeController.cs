@@ -8,5 +8,10 @@ namespace TomHarvey.Website.Controllers
         {
             return View("Template");
         }
+
+        public ViewResult Test()
+        {
+            return View("test");
+        }
     }
 }
