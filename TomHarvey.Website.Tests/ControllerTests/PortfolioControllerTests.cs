@@ -13,6 +13,7 @@ namespace TomHarvey.Website.Tests.ControllerTests
     public class PortfolioControllerTests
     {
         [Test]
+        [Ignore("not yet implemented")]
         public void Index_DoesReturnView()
         {
             var portfolioItemsRepository = MockRepository.GenerateStub<IPortfolioItemsRepository>();
