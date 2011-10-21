@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ControllerTests\GetInTouchControllerTests.cs" />
+    <Compile Include="ControllerTests\PortfolioControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationTests\ContactFormValidationTests.cs" />
   </ItemGroup>
@@ -49,6 +50,9 @@
     <Reference Include="System" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="TomHarvey.Admin.Business">
+      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Business\bin\Debug\TomHarvey.Admin.Business.dll</HintPath>
+    </Reference>
     <Reference Include="TomHarvey.Core">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
     </Reference>
