@@ -1,0 +1,9 @@
+﻿@using TomHarvey.Website.Models.Portfolio
+@model PortfolioDetails
+
+@{
+    ViewBag.Title = Model.PortfolioItemDetails.Item.Title;
+    ViewBag.Sidebar = @Html.Partial("OtherPortfolioItems", Model.PortfolioItems);
+}
+
+portfolio item specific details go in here

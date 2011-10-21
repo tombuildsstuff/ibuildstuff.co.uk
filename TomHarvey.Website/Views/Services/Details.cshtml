@@ -1,0 +1,11 @@
+﻿@using TomHarvey.Website.Models.Services
+@model ServiceInformation
+
+@{
+    ViewBag.Title = Model.Service.Title;
+    ViewBag.Sidebar = @Html.Partial("OtherServices", Model.Services);
+}
+
+content goes in here
+
+@Model.Service.Description

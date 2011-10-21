@@ -15,11 +15,11 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#" title="#">home page</a></li>
-                        <li><a href="#" title="#">portfolio</a></li>
-                        <li><a href="#" title="#">services</a></li>
-                        <li><a href="#" title="#">open source</a></li>
-                        <li><a href="#" title="#">get in touch</a></li>
+                        <li>@Html.ActionLink("home page", "index", "home", null, new { title = "#" })</li>
+                        <li>@Html.ActionLink("portfolio", "index", "portfolio", null, new { title = "#" })</li>
+                        <li>@Html.ActionLink("services", "index", "services", null, new { title = "#" })</li>
+                        <li>@Html.ActionLink("open source", "index", "opensource", null, new { title = "#" })</li>
+                        <li>@Html.ActionLink("get in touch", "index", "getintouch", null, new { title = "#" })</li>
                     </ul>
                 </nav>
             </div>

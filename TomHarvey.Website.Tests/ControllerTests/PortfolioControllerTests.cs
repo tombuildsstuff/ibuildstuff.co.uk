@@ -16,15 +16,15 @@ namespace TomHarvey.Website.Tests.ControllerTests
         [Ignore("not yet implemented")]
         public void Index_DoesReturnView()
         {
-            var portfolioItemsRepository = MockRepository.GenerateStub<IPortfolioItemsRepository>();
-            Expect.Call(portfolioItemsRepository.GetAllItems()).Return(new List<PortfolioItem>());
-
-            var controller = new PortfolioController(portfolioItemsRepository, null);
-            var action = controller.Index();
-
-            Assert.IsInstanceOf<ViewResult>(action);
-            Assert.AreEqual("portfolio", action.ViewName);
-            Assert.IsInstanceOf<IEnumerable<PortfolioDetails>>(action.Model);
+            //var portfolioItemsRepository = MockRepository.GenerateStub<IPortfolioItemsRepository>();
+            //Expect.Call(portfolioItemsRepository.GetAllItems()).Return(new List<PortfolioItem>());
+            //
+            //var controller = new PortfolioController(portfolioItemsRepository, null);
+            //var action = controller.Index();
+            //
+            //Assert.IsInstanceOf<ViewResult>(action);
+            //Assert.AreEqual("portfolio", action.ViewName);
+            //Assert.IsInstanceOf<IEnumerable<PortfolioDetails>>(action.Model);
         }
     }
 }

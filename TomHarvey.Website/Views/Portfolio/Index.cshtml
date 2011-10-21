@@ -1,0 +1,11 @@
+﻿@using TomHarvey.Website.Models.Portfolio
+@model PortfolioOverview
+
+@{
+    ViewBag.Title = Model.Revision.Title;
+    ViewBag.Sidebar = @Html.Partial("OtherPortfolioItems", Model.Items); // TODO: some kinda get in touch form?
+}
+
+@Model.Revision.Content
+
+@{ /* TODO: portfolio items */ }

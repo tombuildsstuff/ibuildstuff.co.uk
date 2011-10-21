@@ -5,14 +5,13 @@ namespace TomHarvey.Website.Models.Portfolio
 {
     public class PortfolioDetails
     {
-        public PortfolioItem Item { get; set; }
+        public PortfolioItemDetails PortfolioItemDetails { get; set; }
+        public List<PortfolioItem> PortfolioItems { get; set; }
 
-        public IEnumerable<PortfolioImage> Images { get; set; }
-
-        public PortfolioDetails(PortfolioItem item, IEnumerable<PortfolioImage> images)
+        public PortfolioDetails(PortfolioItemDetails portfolioItemDetails, List<PortfolioItem> portfolioItems)
         {
-            Item = item;
-            Images = images;
+            PortfolioItemDetails = portfolioItemDetails;
+            PortfolioItems = portfolioItems;
         }
     }
 }

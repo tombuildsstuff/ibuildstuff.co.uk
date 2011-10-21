@@ -55,6 +55,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
     </Reference>
+    <Reference Include="WeBuildStuff.PageManagement.Business">
+      <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Business\bin\Debug\WeBuildStuff.PageManagement.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="WeBuildStuff.Services.Business">
+      <HintPath>..\..\WeBuildStuff.Services\WeBuildStuff.Services.Business\bin\Debug\WeBuildStuff.Services.Business.dll</HintPath>
+    </Reference>
     <Reference Include="WeBuildStuff.Shared">
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared\bin\Debug\WeBuildStuff.Shared.dll</HintPath>
     </Reference>
@@ -63,11 +69,17 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GetInTouchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OpenSourceController.cs" />
     <Compile Include="Controllers\PortfolioController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Portfolio\PortfolioDetails.cs" />
+    <Compile Include="Models\Portfolio\PortfolioItemDetails.cs" />
+    <Compile Include="Models\Portfolio\PortfolioOverview.cs" />
+    <Compile Include="Models\Services\ServiceInformation.cs" />
+    <Compile Include="Models\Services\ServicesOverview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +115,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\OtherPortfolioItems.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\OtherServices.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Services\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Services\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Portfolio\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Portfolio\Details.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
