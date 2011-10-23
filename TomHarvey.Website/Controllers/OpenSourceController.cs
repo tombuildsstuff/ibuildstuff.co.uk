@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TomHarvey.Admin.Business.Interfaces;
 using TomHarvey.Website.Models.OpenSource;
 using WeBuildStuff.PageManagement.Business.Interfaces;
@@ -26,7 +25,10 @@ namespace TomHarvey.Website.Controllers
 
         public ViewResult Index()
         {
-            throw new NotImplementedException();
+            var page = _pageDetailsRepository.GetPageDetailsByName("OpenSource");
+            var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
+            var projects = _openSourceProjectDetailsRepository.GetAll();
+            return View("index", new OpenSourceProjectsOverview(revision, projects));
         }
 
         public ActionResult Details(string id)
@@ -39,6 +41,6 @@ namespace TomHarvey.Website.Controllers
             return View("details", new OpenSourceProjectDetails(project, links /* images? */));
         }
 
-        // https://github.com/tombuildsstuff/repositories (use in content; with extra project details available)
+        // TODO: https://github.com/tombuildsstuff/repositories (use in content; with extra project details available)
     }
 }
