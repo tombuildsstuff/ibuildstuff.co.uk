@@ -7,5 +7,7 @@
     <property name="proxyfactory.factory_class">NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu</property>
     <property name="show_sql">true</property>
     <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <mapping assembly="WeBuildStuff.PageManagement.Data.NHibernate" />
+    <mapping assembly="WeBuildStuff.Services.Data.NHibernate" />
   </session-factory>
 </hibernate-configuration>

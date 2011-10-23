@@ -7,7 +7,13 @@ using FluentValidation.Attributes;
 using FluentValidation.Mvc;
 using NHibernate;
 using NHibernate.Cfg;
+using TomHarvey.Admin.Business.Interfaces;
+using TomHarvey.Admin.Fakes;
 using TomHarvey.Core.CastleWindsor;
+using WeBuildStuff.PageManagement.Business.Interfaces;
+using WeBuildStuff.PageManagement.Data.NHibernate;
+using WeBuildStuff.Services.Business.Interfaces;
+using WeBuildStuff.Services.Data.NHibernate;
 using WeBuildStuff.Shared.ComponentRegistration;
 
 namespace TomHarvey.Website
@@ -58,7 +64,14 @@ namespace TomHarvey.Website
                 foreach (var component in _container.ResolveAll<ISharedComponentRegistration>())
                     component.RegisterAllComponents(ref _container);
 
-                // TODO: proper component registration
+                _container.Register(Component.For<IPageDetailsRepository>().ImplementedBy<PageDetailsRepository>());
+                _container.Register(Component.For<IPageRevisionsRepository>().ImplementedBy<PageRevisionsRepository>());
+                _container.Register(Component.For<IServiceDetailsRepository>().ImplementedBy<ServiceDetailsRepository>());
+                _container.Register(Component.For<IServicePhotosRepository>().ImplementedBy<ServicePhotosRepository>());
+
+                // BUG: TODO: complete PROPER component registration
+                _container.Register(Component.For<IPortfolioItemsRepository>().ImplementedBy<FakePortfolioItemsRepository>());
+                _container.Register(Component.For<IPortfolioImagesRepository>().ImplementedBy<FakePortfolioImagesRepository>());
             }
             AreaRegistration.RegisterAllAreas();
 
