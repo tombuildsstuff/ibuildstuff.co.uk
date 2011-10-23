@@ -1,12 +1,14 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using FluentValidation.Attributes;
 using FluentValidation.Mvc;
 using NHibernate;
 using NHibernate.Cfg;
 using TomHarvey.Core.CastleWindsor;
+using WeBuildStuff.Shared.ComponentRegistration;
 
 namespace TomHarvey.Website
 {
@@ -27,6 +29,8 @@ namespace TomHarvey.Website
             routes.MapRoute("OpenSourceRoute", "open-source/{action}/{id}", new { controller = "opensource", action = "index", id = UrlParameter.Optional });
             routes.MapRoute("PortfolioElement", "portfolio/{name}", new { controller = "portfolio", action = "details" });
             routes.MapRoute("ServicesElement", "services/{name}", new { controller = "services", action = "details" });
+            routes.MapRoute("SEOSitemap", "sitemap.xml", new { controller = "searchengineoptimisation", action = "sitemap" });
+            routes.MapRoute("SEORobots", "robots.txt", new { controller = "searchengineoptimisation", action = "robots" });
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
@@ -46,7 +50,12 @@ namespace TomHarvey.Website
 
             if (_container == null)
             {
+                var assemblies = AllTypes.FromAssemblyInDirectory(new AssemblyFilter(HttpRuntime.BinDirectory));
                 _container = new WindsorContainer();
+                _container.Register(assemblies.BasedOn<IController>().Configure(c => c.LifeStyle.Transient));
+                _container.Register(assemblies.BasedOn<ISharedComponentRegistration>().Configure(c => c.LifeStyle.Transient));
+                foreach (var component in _container.ResolveAll<ISharedComponentRegistration>())
+                    component.RegisterAllComponents(ref _container);
             }
             AreaRegistration.RegisterAllAreas();
 
