@@ -33,11 +33,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Binaries\CastleWindsor\dotNet40\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Binaries\CastleWindsor\dotNet40\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\..\Binaries\FluentValidation\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation.Mvc">
       <HintPath>..\..\Binaries\FluentValidation\MVC\MVC3\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\Binaries\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\..\Binaries\NHibernate\NHibernate.ByteCode.LinFu.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -54,6 +68,9 @@
     <Reference Include="TomHarvey.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="TomHarvey.Core.CastleWindsor">
+      <HintPath>..\..\TomHarvey.Core\TomHarvey.Core.CastleWindsor\bin\Debug\TomHarvey.Core.CastleWindsor.dll</HintPath>
     </Reference>
     <Reference Include="WeBuildStuff.PageManagement.Business">
       <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Business\bin\Debug\WeBuildStuff.PageManagement.Business.dll</HintPath>

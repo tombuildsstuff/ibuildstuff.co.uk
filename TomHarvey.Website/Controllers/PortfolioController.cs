@@ -38,18 +38,11 @@ namespace TomHarvey.Website.Controllers
         {
             var item = string.IsNullOrWhiteSpace(name) ? null : _portfolioItemsRepository.GetByUrl(name);
             if (item == null || item.Removed)
-                return RedirectToAction("not-found");
+                return new HttpNotFoundResult();
 
             var images = _portfolioImagesRepository.GetAllForPortfolioItem(item.Id);
             var otherPortfolioItems = _portfolioItemsRepository.GetAllItems().Where(pi => pi.Id != item.Id).ToList();
             return View("Details", new PortfolioDetails(new PortfolioItemDetails(item, images), otherPortfolioItems));
-        }
-
-        [ActionName("not-found")]
-        public ViewResult NotFound()
-        {
-            // TODO: status code should be 404..
-            throw new NotImplementedException();
         }
 
         // TODO: images for a portfolio item..

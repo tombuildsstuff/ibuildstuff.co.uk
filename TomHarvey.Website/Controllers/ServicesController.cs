@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using TomHarvey.Website.Models.Services;
 using WeBuildStuff.PageManagement.Business.Interfaces;
@@ -37,19 +36,14 @@ namespace TomHarvey.Website.Controllers
         {
             var service = string.IsNullOrWhiteSpace(name) ? null : _serviceDetailsRepository.GetByUrl(name);
             if (service == null || service.Deleted)
-                return RedirectToAction("not-found");
+                return new HttpNotFoundResult();
+
 
             var otherServices = _serviceDetailsRepository.GetAllServiceDetails().Where(s => s.Id != service.Id).ToList();
             var photos = _servicePhotosRepository.GetAllPhotosForService(service.Id);
             return View("Details", new ServiceInformation(service, photos, otherServices));
         }
 
-        [ActionName("not-found")]
-        public ViewResult NotFound()
-        {
-            // TODO: status code should be 404..
-            throw new NotImplementedException();
-        }
         // TODO: images for a portfolio item..
     }
 }
