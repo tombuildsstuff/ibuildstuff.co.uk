@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using TomHarvey.Admin.Business.Interfaces;
 using TomHarvey.Website.Models.Portfolio;

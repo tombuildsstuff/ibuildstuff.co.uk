@@ -1,0 +1,6 @@
+﻿@using TomHarvey.Website.Models.SearchEngineOptimisation
+@model RobotsModel
+@{ Layout = null; }
+User-agent: *
+Allow: /
+Sitemap: @string.Format("{0}/sitemap.xml", Model.WebsiteBaseUriStem)

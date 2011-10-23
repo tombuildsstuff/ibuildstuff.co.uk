@@ -1,0 +1,40 @@
+﻿@using TomHarvey.Website.Models.SearchEngineOptimisation
+@{ Layout = null; }
+@model SitemapInformation
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   @{
+       foreach (var page in Model.Pages)
+       {
+            <url>
+               <loc>@string.Concat(Model.WebsiteBaseUriStem, page.Url)</loc>
+               <changefreq>monthly</changefreq>
+               <priority>0.8</priority>
+            </url>
+        }
+   }
+   
+   @{
+       foreach (var portfolioItem in Model.PortfolioItems)
+       {
+            <url>
+               <loc>@string.Concat(Model.WebsiteBaseUriStem, Url.Action("details", "portfolio", new { id = portfolioItem.Url }))</loc>
+               <changefreq>monthly</changefreq>
+               <priority>0.7</priority>
+            </url>
+       }
+   }
+
+   
+   @{
+       foreach (var service in Model.Services)
+       {
+            <url>
+               <loc>@string.Concat(Model.WebsiteBaseUriStem, Url.Action("details", "services", new { id = service.Url }))</loc>
+               <changefreq>monthly</changefreq>
+               <priority>0.7</priority>
+            </url>
+       }
+   }
+
+</urlset>
