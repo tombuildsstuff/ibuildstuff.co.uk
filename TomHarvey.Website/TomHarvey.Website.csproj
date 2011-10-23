@@ -93,6 +93,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\OpenSource\OpenSourceProjectDetails.cs" />
+    <Compile Include="Models\OpenSource\OpenSourceProjectsOverview.cs" />
     <Compile Include="Models\Portfolio\PortfolioDetails.cs" />
     <Compile Include="Models\Portfolio\PortfolioItemDetails.cs" />
     <Compile Include="Models\Portfolio\PortfolioOverview.cs" />
@@ -178,7 +180,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1059</DevelopmentServerPort>
+          <DevelopmentServerPort>1534</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

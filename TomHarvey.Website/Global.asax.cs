@@ -26,6 +26,7 @@ namespace TomHarvey.Website
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("GetInTouchRoute", "get-in-touch/{action}/{id}", new { controller = "getintouch", action = "index", id = UrlParameter.Optional });
             routes.MapRoute("OpenSourceRoute", "open-source/{action}/{id}", new { controller = "opensource", action = "index", id = UrlParameter.Optional });
             routes.MapRoute("PortfolioElement", "portfolio/{name}", new { controller = "portfolio", action = "details" });
             routes.MapRoute("ServicesElement", "services/{name}", new { controller = "services", action = "details" });
@@ -56,6 +57,8 @@ namespace TomHarvey.Website
                 _container.Register(assemblies.BasedOn<ISharedComponentRegistration>().Configure(c => c.LifeStyle.Transient));
                 foreach (var component in _container.ResolveAll<ISharedComponentRegistration>())
                     component.RegisterAllComponents(ref _container);
+
+                // TODO: proper component registration
             }
             AreaRegistration.RegisterAllAreas();
 
