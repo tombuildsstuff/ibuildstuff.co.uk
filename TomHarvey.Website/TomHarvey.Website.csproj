@@ -65,6 +65,9 @@
     <Reference Include="TomHarvey.Admin.Business">
       <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Business\bin\Debug\TomHarvey.Admin.Business.dll</HintPath>
     </Reference>
+    <Reference Include="TomHarvey.Admin.Fakes">
+      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Fakes\bin\Debug\TomHarvey.Admin.Fakes.dll</HintPath>
+    </Reference>
     <Reference Include="TomHarvey.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
@@ -75,8 +78,14 @@
     <Reference Include="WeBuildStuff.PageManagement.Business">
       <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Business\bin\Debug\WeBuildStuff.PageManagement.Business.dll</HintPath>
     </Reference>
+    <Reference Include="WeBuildStuff.PageManagement.Data.NHibernate">
+      <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Data.NHibernate\bin\Debug\WeBuildStuff.PageManagement.Data.NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="WeBuildStuff.Services.Business">
       <HintPath>..\..\WeBuildStuff.Services\WeBuildStuff.Services.Business\bin\Debug\WeBuildStuff.Services.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="WeBuildStuff.Services.Data.NHibernate">
+      <HintPath>..\..\WeBuildStuff.Services\WeBuildStuff.Services.Data.NHibernate\bin\Debug\WeBuildStuff.Services.Data.NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="WeBuildStuff.Shared">
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared\bin\Debug\WeBuildStuff.Shared.dll</HintPath>

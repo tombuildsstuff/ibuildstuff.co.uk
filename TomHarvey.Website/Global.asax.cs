@@ -10,6 +10,7 @@ using NHibernate.Cfg;
 using TomHarvey.Admin.Business.Interfaces;
 using TomHarvey.Admin.Fakes;
 using TomHarvey.Core.CastleWindsor;
+using TomHarvey.Core.Communication.Emailing;
 using WeBuildStuff.PageManagement.Business.Interfaces;
 using WeBuildStuff.PageManagement.Data.NHibernate;
 using WeBuildStuff.Services.Business.Interfaces;
@@ -64,12 +65,14 @@ namespace TomHarvey.Website
                 foreach (var component in _container.ResolveAll<ISharedComponentRegistration>())
                     component.RegisterAllComponents(ref _container);
 
+                _container.Register(Component.For<ISessionFactory>().Instance(_sessionFactory));
                 _container.Register(Component.For<IPageDetailsRepository>().ImplementedBy<PageDetailsRepository>());
                 _container.Register(Component.For<IPageRevisionsRepository>().ImplementedBy<PageRevisionsRepository>());
                 _container.Register(Component.For<IServiceDetailsRepository>().ImplementedBy<ServiceDetailsRepository>());
                 _container.Register(Component.For<IServicePhotosRepository>().ImplementedBy<ServicePhotosRepository>());
 
                 // BUG: TODO: complete PROPER component registration
+                _container.Register(Component.For<IEmailMailerService>().ImplementedBy<ImmediateEmailMailerService>());
                 _container.Register(Component.For<IPortfolioItemsRepository>().ImplementedBy<FakePortfolioItemsRepository>());
                 _container.Register(Component.For<IPortfolioImagesRepository>().ImplementedBy<FakePortfolioImagesRepository>());
             }
