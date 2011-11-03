@@ -1,17 +1,23 @@
 ﻿using System.Web.Mvc;
+using WeBuildStuff.PageManagement.Business.Interfaces;
 
 namespace TomHarvey.Website.Controllers
 {
     public class HomeController : BaseController
     {
-        public ViewResult Index()
+        private readonly IPageDetailsRepository _pageDetailsRepository;
+        private readonly IPageRevisionsRepository _pageRevisionsRepository;
+        public HomeController(IPageDetailsRepository pageDetailsRepository, IPageRevisionsRepository pageRevisionsRepository)
         {
-            return View("Template");
+            _pageDetailsRepository = pageDetailsRepository;
+            _pageRevisionsRepository = pageRevisionsRepository;
         }
 
-        public ViewResult Test()
+        public ViewResult Index()
         {
-            return View("test");
+            var page = _pageDetailsRepository.GetPageDetailsByName("Home");
+            var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
+            return View("Index", revision);
         }
     }
 }
