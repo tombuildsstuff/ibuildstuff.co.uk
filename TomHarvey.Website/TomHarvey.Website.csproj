@@ -143,12 +143,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Template.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\test.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\OtherPortfolioItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
