@@ -6,4 +6,25 @@
     ViewBag.Sidebar = @Html.Partial("OtherServices", Model.Services); // TODO: This should be links to my portfolio; and how i've helped?
 }
 
-content about the service should go in here
+@Model.Revision.Content
+<br /><br />
+
+@{
+    if (Model.Services.Count > 0)
+    {
+        foreach (var service in Model.Services)
+        {
+            <text>
+                <h3>@Html.ActionLink(service.Title, "details", "services", new { name = service.Url }, null)</h3>
+                @service.Description
+                <br /><br />
+            </text>
+        }
+    }
+    else
+    {
+        <text>
+            I haven't got round to listing any services just yet, @Html.ActionLink("why not check out my portfolio instead", "index", "portfolio")?
+        </text>
+    }
+}

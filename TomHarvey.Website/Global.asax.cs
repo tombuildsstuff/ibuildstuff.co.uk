@@ -34,7 +34,8 @@ namespace TomHarvey.Website
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute("GetInTouchRoute", "get-in-touch/{action}/{id}", new { controller = "getintouch", action = "index", id = UrlParameter.Optional });
-            routes.MapRoute("OpenSourceRoute", "open-source/{action}/{id}", new { controller = "opensource", action = "index", id = UrlParameter.Optional });
+            routes.MapRoute("OpenSourceRoute", "open-source/{id}", new { controller = "opensource", action = "details" });
+            routes.MapRoute("OpenSourceMainPage", "open-source", new { controller = "opensource", action = "index" });
             routes.MapRoute("PortfolioElement", "portfolio/{name}", new { controller = "portfolio", action = "details" });
             routes.MapRoute("ServicesElement", "services/{name}", new { controller = "services", action = "details" });
             routes.MapRoute("SEOSitemap", "sitemap.xml", new { controller = "searchengineoptimisation", action = "sitemap" });
@@ -75,6 +76,8 @@ namespace TomHarvey.Website
                 _container.Register(Component.For<IEmailMailerService>().ImplementedBy<ImmediateEmailMailerService>());
                 _container.Register(Component.For<IPortfolioItemsRepository>().ImplementedBy<FakePortfolioItemsRepository>());
                 _container.Register(Component.For<IPortfolioImagesRepository>().ImplementedBy<FakePortfolioImagesRepository>());
+                _container.Register(Component.For<IOpenSourceProjectDetailsRepository>().ImplementedBy<FakeOpenSourceProjectDetailsRepository>());
+                _container.Register(Component.For<IOpenSourceProjectLinksRepository>().ImplementedBy<FakeOpenSourceProjectLinksRepository>());
             }
             AreaRegistration.RegisterAllAreas();
 
