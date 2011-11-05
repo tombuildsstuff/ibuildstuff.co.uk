@@ -6,6 +6,28 @@
     ViewBag.Sidebar = @Html.Partial("OtherPortfolioItems", Model.PortfolioItems);
 }
 
+@Model.PortfolioItemDetails.Item.FullDetails<br /><br />
 
+@{
+    if (!string.IsNullOrWhiteSpace(Model.PortfolioItemDetails.Item.LiveUrl))
+    {
+        <text>
+            <h3>See It For Yourself</h3>
+            You can view it for yourself by clicking here: <a href="@Model.PortfolioItemDetails.Item.LiveUrl" target="_blank">@Model.PortfolioItemDetails.Item.LiveUrl</a>
+            <br /><br />
+        </text>
+    }
+}
 
-portfolio item specific details go in here
+@{
+    if (Model.PortfolioItemDetails.Images.Count() > 0)
+    {
+        <h3>Take a Look</h3>
+        foreach (var item in Model.PortfolioItemDetails.Images.OrderBy(i => i.IsDefault))
+        {
+            <text>
+                <img src="@Url.Action("portfolio", "images", new { id = @item.PortfolioItemId, additional = @item.Id })" alt="@item.Caption" title="@item.Caption" />
+            </text>
+        }
+    }
+}

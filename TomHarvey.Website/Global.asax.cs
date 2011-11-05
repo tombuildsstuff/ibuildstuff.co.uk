@@ -7,6 +7,8 @@ using FluentValidation.Attributes;
 using FluentValidation.Mvc;
 using NHibernate;
 using NHibernate.Cfg;
+using OpenFileSystem.IO;
+using OpenFileSystem.IO.FileSystems.Local;
 using TomHarvey.Admin.Business.Interfaces;
 using TomHarvey.Admin.Fakes;
 using TomHarvey.Core.CastleWindsor;
@@ -16,6 +18,7 @@ using WeBuildStuff.PageManagement.Data.NHibernate;
 using WeBuildStuff.Services.Business.Interfaces;
 using WeBuildStuff.Services.Data.NHibernate;
 using WeBuildStuff.Shared.ComponentRegistration;
+using WeBuildStuff.Shared.Settings;
 
 namespace TomHarvey.Website
 {
@@ -40,10 +43,16 @@ namespace TomHarvey.Website
             routes.MapRoute("ServicesElement", "services/{name}", new { controller = "services", action = "details" });
             routes.MapRoute("SEOSitemap", "sitemap.xml", new { controller = "searchengineoptimisation", action = "sitemap" });
             routes.MapRoute("SEORobots", "robots.txt", new { controller = "searchengineoptimisation", action = "robots" });
+
+            routes.MapRoute(
+                 "DefaultWithAdditional", // Route name
+                 "{controller}/{action}/{id}/{additional}", // URL with parameters
+                 new { controller = "Home", action = "Index", id = UrlParameter.Optional, additional = UrlParameter.Optional } // Parameter defaults
+             ); 
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional} // Parameter defaults
             );
         }
 
@@ -71,6 +80,8 @@ namespace TomHarvey.Website
                 _container.Register(Component.For<IPageRevisionsRepository>().ImplementedBy<PageRevisionsRepository>());
                 _container.Register(Component.For<IServiceDetailsRepository>().ImplementedBy<ServiceDetailsRepository>());
                 _container.Register(Component.For<IServicePhotosRepository>().ImplementedBy<ServicePhotosRepository>());
+                _container.Register(Component.For<ISettingsRepository>().ImplementedBy<ConfigurationBasedSettingsRepository>());
+                _container.Register(Component.For<IFileSystem>().Instance(LocalFileSystem.Instance));
 
                 // BUG: TODO: complete PROPER component registration
                 _container.Register(Component.For<IEmailMailerService>().ImplementedBy<ImmediateEmailMailerService>());

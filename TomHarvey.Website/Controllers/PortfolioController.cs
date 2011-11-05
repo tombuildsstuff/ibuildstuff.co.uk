@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using TomHarvey.Admin.Business.Interfaces;
 using TomHarvey.Website.Models.Portfolio;
@@ -42,6 +43,11 @@ namespace TomHarvey.Website.Controllers
             var images = _portfolioImagesRepository.GetAllForPortfolioItem(item.Id);
             var otherPortfolioItems = _portfolioItemsRepository.GetAllItems().Where(pi => pi.Id != item.Id).ToList();
             return View("Details", new PortfolioDetails(new PortfolioItemDetails(item, images), otherPortfolioItems));
+        }
+
+        public ActionResult Image(int id, int additional)
+        {
+            throw new NotImplementedException();
         }
 
         // TODO: images for a portfolio item..

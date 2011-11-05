@@ -8,7 +8,7 @@
         foreach (var item in Model)
         {
             <h4>@Html.ActionLink(item.Title, "details", "portfolio", new { name = item.Url }, null)</h4><br />
-            @item.ShortDescription<br /><br />
+            @item.SidebarContent<br /><br />
         }
     }
 }

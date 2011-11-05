@@ -53,6 +53,10 @@
     <Reference Include="NHibernate.ByteCode.LinFu">
       <HintPath>..\..\Binaries\NHibernate\NHibernate.ByteCode.LinFu.dll</HintPath>
     </Reference>
+    <Reference Include="OpenFileSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Binaries\OpenFileSystem\OpenFileSystem.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
@@ -95,6 +99,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GetInTouchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\OpenSourceController.cs" />
     <Compile Include="Controllers\PortfolioController.cs" />
     <Compile Include="Controllers\SearchEngineOptimisationController.cs" />
