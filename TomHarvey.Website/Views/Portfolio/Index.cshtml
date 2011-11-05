@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = Model.Revision.Title;
-    ViewBag.Sidebar = @Html.Partial("OtherPortfolioItems", Model.Items); // TODO: some kinda get in touch form?
+    ViewBag.Sidebar = @Html.Partial("PortfolioContactSidebar");
 }
 
 @Model.Revision.Content

@@ -1,15 +1,19 @@
 ﻿using System.Web.Mvc;
 using TomHarvey.Core.Communication.Emailing;
 using TomHarvey.Website.Domain.GetInTouch;
+using WeBuildStuff.Shared.Settings;
 
 namespace TomHarvey.Website.Controllers
 {
     public class GetInTouchController : BaseController
     {
         private readonly IEmailMailerService _emailService;
-        public GetInTouchController(IEmailMailerService emailService)
+        private readonly ISettingsRepository _settingsRepository;
+
+        public GetInTouchController(IEmailMailerService emailService, ISettingsRepository settingsRepository)
         {
             _emailService = emailService;
+            _settingsRepository = settingsRepository;
         }
 
         public ViewResult Index()

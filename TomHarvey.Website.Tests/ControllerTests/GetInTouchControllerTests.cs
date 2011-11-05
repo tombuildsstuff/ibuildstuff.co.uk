@@ -3,7 +3,6 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using TomHarvey.Core.Communication.Emailing;
 using TomHarvey.Website.Controllers;
-using TomHarvey.Website.Domain.EmailGeneration;
 using TomHarvey.Website.Domain.GetInTouch;
 
 namespace TomHarvey.Website.Tests.ControllerTests
@@ -14,7 +13,7 @@ namespace TomHarvey.Website.Tests.ControllerTests
         [Test]
         public void Index_DoesReturn_View()
         {
-            var controller = new GetInTouchController(null);
+            var controller = new GetInTouchController(null, null);
             var action = controller.Index();
             Assert.AreEqual(action.ViewName, "index");
         }
@@ -22,7 +21,7 @@ namespace TomHarvey.Website.Tests.ControllerTests
         [Test]
         public void Index_DoesReturn_EmptyContactFormAsModel()
         {
-            var controller = new GetInTouchController(null);
+            var controller = new GetInTouchController(null, null);
             var action = controller.Index();
             Assert.IsInstanceOf<ContactForm>(action.Model);
         }
@@ -30,7 +29,7 @@ namespace TomHarvey.Website.Tests.ControllerTests
         [Test]
         public void ContactForm_WithModelErrors_ReturnsView()
         {
-            var controller = new GetInTouchController(null);
+            var controller = new GetInTouchController(null, null);
             var form = new ContactForm();
             var action = controller.Send(form);
             Assert.NotNull(action as ViewResult);
@@ -48,7 +47,7 @@ namespace TomHarvey.Website.Tests.ControllerTests
         [Test]
         public void ContactForm_CompletedSuccessfully_RedirectsToThanks()
         {
-            var controller = new GetInTouchController(MockRepository.GenerateStub<ImmediateEmailMailerService>());
+            var controller = new GetInTouchController(MockRepository.GenerateStub<ImmediateEmailMailerService>(), null);
             var action = controller.Send(new ContactForm { Name = "some name", ContactDetails = "some details", Message = "some message" });
             var result = ((RedirectToRouteResult) action);
 
@@ -60,7 +59,7 @@ namespace TomHarvey.Website.Tests.ControllerTests
         [Test]
         public void Thanks_DoesReturnView()
         {
-            var controller = new GetInTouchController(null);
+            var controller = new GetInTouchController(null, null);
             var action = controller.Thanks();
             Assert.AreEqual("thanks", action.ViewName);
         }
