@@ -56,6 +56,13 @@
     <Reference Include="TomHarvey.Core">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
     </Reference>
+    <Reference Include="WeBuildStuff.PageManagement.Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Business\bin\Debug\WeBuildStuff.PageManagement.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="WeBuildStuff.PageManagement.Fakes">
+      <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Fakes\bin\Debug\WeBuildStuff.PageManagement.Fakes.dll</HintPath>
+    </Reference>
     <Reference Include="WeBuildStuff.Shared">
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared\bin\Debug\WeBuildStuff.Shared.dll</HintPath>
     </Reference>

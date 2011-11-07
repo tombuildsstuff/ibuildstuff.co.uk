@@ -9,9 +9,9 @@
 @Model.Revision.Content
 
 @{
-    if (Model.Result != null)
+    if (Model.ValidationResult != null)
     {
-        @Html.Partial("ValidationErrors", Model.Result)
+        @Html.Partial("ValidationErrors", Model.ValidationResult)
     }
 }
 

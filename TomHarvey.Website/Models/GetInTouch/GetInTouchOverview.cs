@@ -10,7 +10,7 @@ namespace TomHarvey.Website.Models.GetInTouch
         
         public ContactForm Form { get; set; }
 
-        public ValidationResult Result { get; set; }
+        public ValidationResult ValidationResult { get; set; }
 
         public GetInTouchOverview(PageRevision revision, ContactForm form, ValidationResult result)
         {
@@ -18,7 +18,7 @@ namespace TomHarvey.Website.Models.GetInTouch
 
             Form = form;
 
-            Result = result;
+            ValidationResult = result;
         }
     }
 }
