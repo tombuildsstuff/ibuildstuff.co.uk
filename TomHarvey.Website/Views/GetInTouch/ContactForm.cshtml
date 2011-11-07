@@ -1,4 +1,13 @@
 ﻿@using TomHarvey.Website.Domain.GetInTouch
 @model ContactForm
 
-@{ /* TODO: contact form.. */ } 
+@Html.LabelFor(x => x.Name, "My name is:")<br />
+@Html.TextBoxFor(x => x.Name)<br /><br />
+
+@Html.LabelFor(x => x.ContactDetails, "It's best to get hold of me using:")<br />
+@Html.TextBoxFor(x => x.ContactDetails)<br /><br />
+
+@Html.LabelFor(x => x.Message, "I'd like to talk about:")<br />
+@Html.TextAreaFor(x => x.Message, 8, 40, null)<br /><br />
+
+<button type="submit">Send Message</button>

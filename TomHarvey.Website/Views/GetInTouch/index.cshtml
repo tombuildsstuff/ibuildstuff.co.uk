@@ -3,16 +3,28 @@
 
 @{
     ViewBag.Title = Model.Revision.Title;
-    ViewBag.SideBar = null;
+    ViewBag.SideBar = @Html.Partial("ContactAdditionalMethodsSidebar");
 }
 
 @Model.Revision.Content
+<br /><br />
 
 @{
     if (Model.ValidationResult != null)
     {
-        @Html.Partial("ValidationErrors", Model.ValidationResult)
+        <text>
+            @Html.Partial("ValidationErrors", Model.ValidationResult)
+            <br /><br />
+        </text>
     }
 }
 
-@Html.Partial("ContactForm", Model.Form)
+<div class="contactForm">
+    @{
+        using (Html.BeginForm("send", "getintouch"))
+        {
+            @Html.Partial("ContactForm", Model.Form)
+        }
+    }
+</div>
+<div class="clear"></div>
