@@ -43,7 +43,5 @@ namespace TomHarvey.Website.Controllers
             var photos = _servicePhotosRepository.GetAllPhotosForService(service.Id);
             return View("Details", new ServiceInformation(service, photos, otherServices));
         }
-
-        // TODO: images for a portfolio item..
     }
 }

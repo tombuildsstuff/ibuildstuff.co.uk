@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Web.Mvc;
 using OpenFileSystem.IO;
 using TomHarvey.Admin.Business.Interfaces;
@@ -52,6 +53,11 @@ namespace TomHarvey.Website.Controllers
             {
                 return new HttpNotFoundResult();
             }
+        }
+
+        public ActionResult Service(int id, int additional)
+        {
+            throw new NotImplementedException();
         }
     }
 }

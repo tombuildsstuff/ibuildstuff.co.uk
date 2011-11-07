@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = Model.Revision.Title;
-    ViewBag.Sidebar = @Html.Partial("OtherServices", Model.Services); // TODO: This should be links to my portfolio; and how i've helped?
+    ViewBag.Sidebar = @Html.Partial("ContactSidebar");
 }
 
 @Model.Revision.Content
