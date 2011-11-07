@@ -43,6 +43,9 @@
     <Reference Include="TomHarvey.Core">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
     </Reference>
+    <Reference Include="WeBuildStuff.Shared">
+      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared\bin\Debug\WeBuildStuff.Shared.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

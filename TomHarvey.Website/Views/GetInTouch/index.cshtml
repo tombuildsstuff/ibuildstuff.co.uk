@@ -1,0 +1,18 @@
+﻿@using TomHarvey.Website.Models.GetInTouch
+@model GetInTouchOverview
+
+@{
+    ViewBag.Title = Model.Revision.Title;
+    ViewBag.SideBar = null;
+}
+
+@Model.Revision.Content
+
+@{
+    if (Model.Result != null)
+    {
+        @Html.Partial("ValidationErrors", Model.Result)
+    }
+}
+
+@Html.Partial("ContactForm", Model.Form)
