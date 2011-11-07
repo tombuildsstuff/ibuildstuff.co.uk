@@ -30,3 +30,6 @@ footer { border-top: 1px solid #DDD; margin-top: 8px; padding-top: 5px; text-ali
 /* sidebar contact form */
 #sidebarContactForm input, #sidebarContactForm textarea { width: 100%; padding: 3px; border: 1px solid #CCC; background: #FEFEFE }
 #sidebarContactForm button { float: right }
+
+/* validation */
+.warning { background: #fcc; padding: 6px }

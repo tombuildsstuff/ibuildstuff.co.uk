@@ -1,4 +1,16 @@
 ﻿@using FluentValidation.Results
 @model ValidationResult
 
-@{ /* TODO: some stuff */ }
+<div class="warning">
+    <strong>Please Complete All Fields</strong>
+    <ul>
+        @{
+            foreach (var item in Model.Errors)
+            {
+                <text>
+                    <li>@item.ErrorMessage</li>
+                </text>
+            }
+        }
+    </ul>
+</div>
