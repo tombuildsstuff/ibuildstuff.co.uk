@@ -10,7 +10,7 @@ namespace TomHarvey.Website.Controllers
 {
     public class GetInTouchController : BaseController
     {
-        private readonly IEmailMailerService _emailService;
+        public readonly IEmailMailerService EmailService;
         private readonly ISettingsRepository _settingsRepository;
         private readonly IPageDetailsRepository _pageDetailsRepository;
         private readonly IPageRevisionsRepository _pageRevisionsRepository;
@@ -20,7 +20,7 @@ namespace TomHarvey.Website.Controllers
                                     IPageDetailsRepository pageDetailsRepository,
                                     IPageRevisionsRepository pageRevisionsRepository)
         {
-            _emailService = emailService;
+            EmailService = emailService;
             _settingsRepository = settingsRepository;
             _pageDetailsRepository = pageDetailsRepository;
             _pageRevisionsRepository = pageRevisionsRepository;
@@ -42,7 +42,7 @@ namespace TomHarvey.Website.Controllers
             if (result.IsValid)
             {
                 var email = form.GenerateEmailMessage(_settingsRepository);
-                 _emailService.SendEmail(email, _settingsRepository.CurrentEmailSettings());
+                 EmailService.SendEmail(email, _settingsRepository.CurrentEmailSettings());
                 return RedirectToAction("thanks", "getintouch");
             }
 
