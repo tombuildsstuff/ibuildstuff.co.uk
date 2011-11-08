@@ -28,9 +28,7 @@ namespace TomHarvey.Website.Controllers
         {
             var page = _pageDetailsRepository.GetPageDetailsByName("Portfolio");
             var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
-            var portfolioItems = _portfolioItemsRepository.GetAllItems()
-                                                          .Select(pi => new PortfolioItemDetails(pi, _portfolioImagesRepository.GetAllForPortfolioItem(pi.Id)))
-                                                          .ToList();
+            var portfolioItems = _portfolioItemsRepository.GetAllItems();
             return View("Index", new PortfolioOverview(revision, portfolioItems));
         }
 

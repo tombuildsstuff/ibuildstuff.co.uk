@@ -55,6 +55,12 @@ namespace TomHarvey.Website.Controllers
             }
         }
 
+        [ActionName("portfolio-main")]
+        public ActionResult PortfolioMain(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public ActionResult Service(int id, int additional)
         {
             throw new NotImplementedException();
