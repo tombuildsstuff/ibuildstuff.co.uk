@@ -10,13 +10,13 @@
                 <text>
                 
                     <label for="Name">My Name is:</label><br />
-                    @Html.TextBox("Name")<br /><br />
+                    <input type="text" id="Name" name="Name" /><br /><br />
 
                     <label for="ContactDetails">It's best to get hold of me using:</label><br />
-                    @Html.TextBox("ContactDetails")<br /><br />
+                    <input type="text" id="ContactDetails" name="ContactDetails" /><br /><br />
 
                     <label for="Message">I'd like to talk about:</label><br />
-                    @Html.TextArea("Message")<br /><br />
+                    <textarea id="Message" name="Message" rows="5" cols="40"></textarea><br /><br />
 
                     <button type="submit">Send</button>
 
