@@ -9,5 +9,6 @@
     <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
     <mapping assembly="WeBuildStuff.PageManagement.Data.NHibernate" />
     <mapping assembly="WeBuildStuff.Services.Data.NHibernate" />
+    <mapping assembly="TomHarvey.Admin.Data.NHibernate" />
   </session-factory>
 </hibernate-configuration>

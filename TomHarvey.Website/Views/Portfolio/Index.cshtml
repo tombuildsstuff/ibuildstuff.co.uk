@@ -13,9 +13,9 @@
     foreach (var item in Model.Items)
     {
         <text>
-            <h3>@Html.ActionLink(item.Title, "details", "portfolio", new { name = item.Url }, null)</h3>
+            <h3>@Html.ActionLink(item.Title, "details", "portfolio", new { name = item.FriendlyUrl }, null)</h3>
             @item.ShortDescription<br /><br />
-            <a href="@Url.Action("details", "portfolio", new { name = item.Url })">
+            <a href="@Url.Action("details", "portfolio", new { name = item.FriendlyUrl })">
                 <img src="@Url.Action("portfolio-main", "images", new { id = item.Id })" alt="Screenshot of @item.Title" title="Screenshot of @item.Title" />
             </a>
             <br /><br />

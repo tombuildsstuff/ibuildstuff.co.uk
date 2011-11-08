@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Web.Mvc;
 using OpenFileSystem.IO;
-using TomHarvey.Admin.Business.Interfaces;
+using TomHarvey.Admin.Business.Portfolio.Interfaces;
 using TomHarvey.Core.Helpers;
 using WeBuildStuff.Services.Business.Interfaces;
 using WeBuildStuff.Shared.Settings;
@@ -36,11 +36,11 @@ namespace TomHarvey.Website.Controllers
         public ActionResult Portfolio(int id, int additional)
         {
             var portfolioItem = _portfolioItemsRepository.GetById(id);
-            if (portfolioItem == null || portfolioItem.Removed)
+            if (portfolioItem == null || portfolioItem.DateDeleted.HasValue || portfolioItem.DeletedByUserId.HasValue)
                 return new HttpNotFoundResult();
 
             var portfolioImage = _portfolioImagesRepository.GetById(additional);
-            if (portfolioImage == null || portfolioImage.Removed || portfolioImage.PortfolioId != id)
+            if (portfolioImage == null || portfolioImage.DateDeleted.HasValue || portfolioImage.DeletedByUserId.HasValue || portfolioImage.PortfolioId != id)
                 return new HttpNotFoundResult();
 
             var bytes = GetImageContents("Portfolio", portfolioImage.FileName);

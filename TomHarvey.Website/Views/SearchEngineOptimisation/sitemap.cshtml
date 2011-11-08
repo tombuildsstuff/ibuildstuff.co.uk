@@ -18,7 +18,7 @@
        foreach (var portfolioItem in Model.PortfolioItems)
        {
             <url>
-               <loc>@string.Concat(Model.WebsiteBaseUriStem, Url.Action("details", "portfolio", new { id = portfolioItem.Url }))</loc>
+               <loc>@string.Concat(Model.WebsiteBaseUriStem, Url.Action("details", "portfolio", new { id = portfolioItem.FriendlyUrl }))</loc>
                <changefreq>monthly</changefreq>
                <priority>0.7</priority>
             </url>

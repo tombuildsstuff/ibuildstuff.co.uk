@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
-using TomHarvey.Admin.Business.Interfaces;
+using TomHarvey.Admin.Business.Portfolio.Interfaces;
 using TomHarvey.Website.Models.Portfolio;
 using WeBuildStuff.PageManagement.Business.Interfaces;
 
@@ -35,7 +34,7 @@ namespace TomHarvey.Website.Controllers
         public ActionResult Details(string name)
         {
             var item = string.IsNullOrWhiteSpace(name) ? null : _portfolioItemsRepository.GetByUrl(name);
-            if (item == null || item.Removed)
+            if (item == null || item.DeletedByUserId.HasValue || item.DateDeleted.HasValue)
                 return new HttpNotFoundResult();
 
             var images = _portfolioImagesRepository.GetAllForPortfolioItem(item.Id);

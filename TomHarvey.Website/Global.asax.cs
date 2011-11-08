@@ -9,7 +9,10 @@ using NHibernate;
 using NHibernate.Cfg;
 using OpenFileSystem.IO;
 using OpenFileSystem.IO.FileSystems.Local;
-using TomHarvey.Admin.Business.Interfaces;
+using TomHarvey.Admin.Business.OpenSource.Interfaces;
+using TomHarvey.Admin.Business.Portfolio.Interfaces;
+using TomHarvey.Admin.Data.NHibernate.OpenSource;
+using TomHarvey.Admin.Data.NHibernate.Portfolio;
 using TomHarvey.Admin.Fakes;
 using TomHarvey.Core.CastleWindsor;
 using TomHarvey.Core.Communication.Emailing;
@@ -80,13 +83,11 @@ namespace TomHarvey.Website
                 _container.Register(Component.For<IServicePhotosRepository>().ImplementedBy<ServicePhotosRepository>());
                 _container.Register(Component.For<ISettingsRepository>().ImplementedBy<ConfigurationBasedSettingsRepository>());
                 _container.Register(Component.For<IFileSystem>().Instance(LocalFileSystem.Instance));
-
-                // BUG: TODO: complete PROPER component registration
                 _container.Register(Component.For<IEmailMailerService>().ImplementedBy<ImmediateEmailMailerService>());
-                _container.Register(Component.For<IPortfolioItemsRepository>().ImplementedBy<FakePortfolioItemsRepository>());
-                _container.Register(Component.For<IPortfolioImagesRepository>().ImplementedBy<FakePortfolioImagesRepository>());
-                _container.Register(Component.For<IOpenSourceProjectDetailsRepository>().ImplementedBy<FakeOpenSourceProjectDetailsRepository>());
-                _container.Register(Component.For<IOpenSourceProjectLinksRepository>().ImplementedBy<FakeOpenSourceProjectLinksRepository>());
+                _container.Register(Component.For<IPortfolioItemsRepository>().ImplementedBy<PortfolioItemsRepository>());
+                _container.Register(Component.For<IPortfolioImagesRepository>().ImplementedBy<PortfolioImagesRepository>());
+                _container.Register(Component.For<IOpenSourceProjectDetailsRepository>().ImplementedBy<OpenSourceProjectDetailsRepository>());
+                _container.Register(Component.For<IOpenSourceProjectLinksRepository>().ImplementedBy<OpenSourceProjectLinksRepository>());
             }
             AreaRegistration.RegisterAllAreas();
 

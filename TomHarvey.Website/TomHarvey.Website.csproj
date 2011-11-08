@@ -70,6 +70,9 @@
     <Reference Include="TomHarvey.Admin.Business">
       <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Business\bin\Debug\TomHarvey.Admin.Business.dll</HintPath>
     </Reference>
+    <Reference Include="TomHarvey.Admin.Data.NHibernate">
+      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Data.NHibernate\bin\Debug\TomHarvey.Admin.Data.NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="TomHarvey.Admin.Fakes">
       <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Fakes\bin\Debug\TomHarvey.Admin.Fakes.dll</HintPath>
     </Reference>
