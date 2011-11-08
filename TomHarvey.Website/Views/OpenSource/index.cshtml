@@ -1,0 +1,21 @@
+﻿@using TomHarvey.Website.Models.OpenSource
+@model OpenSourceProjectsOverview
+
+@{
+    ViewBag.Title = Model.Revision.Title;
+    ViewBag.SideBar = Html.Partial("ContactSidebar");
+}
+
+@Model.Revision.Content
+<br /><br />
+
+@{
+    foreach (var project in Model.Projects)
+    {
+        <text>
+            <h2>@Html.ActionLink(project.Title, "details", "opensource", new { id = project.FriendlyUrl }, null)</h2>
+            @project.ShortDescription
+            <br /><br />
+        </text>
+    }
+}
