@@ -18,7 +18,7 @@ header nav { float: right }
 header nav ul { list-style-type: none; margin: 0; padding: 0; margin-top: 4px }
 header nav ul li { float: left; padding: 14px 30px 0; margin-right: 4px; height: 35px }
 header nav ul li a { color: #FFF; display: block; font-family: "Avenir LT 55 Roman"; font-size: 15px; text-decoration: none }
-header nav ul li:hover { background-color:rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4) }
+header nav ul li:hover { background-color:rgba(255,255,255,0.2);border: 1px solid rgba(255, 255, 255, 0.4); margin-right: 2px }
             
 /* content */
 #content { float: left; width: 700px }
