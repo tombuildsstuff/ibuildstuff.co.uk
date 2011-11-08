@@ -8,11 +8,14 @@ header { background: #C00 /* or 316ac5 - can change dynamically dependent on the
 .clear { clear: both }
             
 /* titles TODO: proper fonts */
-h1, h2, h3 { color: #333; margin: 4px 0; font-variant: small-caps; line-height: 25px; vertical-align: bottom }
+h1, h2, h3, h4 { margin: 4px 0; font-variant: small-caps; line-height: 25px; vertical-align: bottom }
+h1, h2 { color: #333 }
+h3, h4 { color: #444; font-family: Calibri }
 h1 { font-family: Segoe UI; font-size: 18px }
 h2 {  }
-h3 { color: #444; font-family: Calibri; font-size: 16px }
-            
+h3 { font-size: 16px }
+h4 { font-size: 14px }
+
 /* navigation */
 header nav { float: right }
 header nav ul { list-style-type: none; margin: 0; padding: 0; margin-top: 4px }

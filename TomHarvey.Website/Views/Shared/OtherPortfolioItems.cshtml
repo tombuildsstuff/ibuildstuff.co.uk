@@ -7,7 +7,7 @@
         <h3>Some Other Things I've Made</h3>
         foreach (var item in Model)
         {
-            <h4>@Html.ActionLink(item.Title, "details", "portfolio", new { name = item.Url }, null)</h4><br />
+            <h4>@Html.ActionLink(item.Title, "details", "portfolio", new { name = item.Url }, null)</h4>
             @item.SidebarContent<br /><br />
         }
     }
