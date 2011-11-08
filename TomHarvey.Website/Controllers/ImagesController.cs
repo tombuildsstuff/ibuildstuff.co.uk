@@ -40,7 +40,7 @@ namespace TomHarvey.Website.Controllers
                 return new HttpNotFoundResult();
 
             var portfolioImage = _portfolioImagesRepository.GetById(additional);
-            if (portfolioImage == null || portfolioImage.Removed || portfolioImage.PortfolioItemId != id)
+            if (portfolioImage == null || portfolioImage.Removed || portfolioImage.PortfolioId != id)
                 return new HttpNotFoundResult();
 
             var bytes = GetImageContents("Portfolio", portfolioImage.FileName);

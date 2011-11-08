@@ -42,12 +42,5 @@ namespace TomHarvey.Website.Controllers
             var otherPortfolioItems = _portfolioItemsRepository.GetAllItems().Where(pi => pi.Id != item.Id).ToList();
             return View("Details", new PortfolioDetails(new PortfolioItemDetails(item, images), otherPortfolioItems));
         }
-
-        public ActionResult Image(int id, int additional)
-        {
-            throw new NotImplementedException();
-        }
-
-        // TODO: images for a portfolio item..
     }
 }
