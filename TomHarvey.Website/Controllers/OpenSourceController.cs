@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using TomHarvey.Admin.Business.Interfaces;
 using TomHarvey.Website.Models.OpenSource;
 using WeBuildStuff.PageManagement.Business.Interfaces;
@@ -38,7 +39,8 @@ namespace TomHarvey.Website.Controllers
                 return new HttpNotFoundResult();
 
             var links = _openSourceProjectLinksRepository.GetAllForProject(project.Id);
-            return View("details", new OpenSourceProjectDetails(project, links /* images? */));
+            var otherProjects = _openSourceProjectDetailsRepository.GetAll().Where(pd => pd.Id != project.Id).ToList();
+            return View("details", new OpenSourceProjectDetails(project, links, otherProjects));
         }
     }
 }

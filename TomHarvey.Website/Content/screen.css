@@ -34,3 +34,8 @@ button { float: right }
 
 /* validation */
 .warning { background: #fcc; padding: 6px }
+
+/* download buttons */
+.downloadbuttons { list-style-type: none; margin: 0; padding: 0 }
+.downloadbuttons li { background: #EEE; border: 1px solid #CCC; color: #000; display: block; font-size: 18px; padding: 5px 8px; text-align: center }
+.downloadbuttons li a { color: #000; text-decoration: none }
