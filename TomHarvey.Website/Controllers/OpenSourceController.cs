@@ -40,7 +40,5 @@ namespace TomHarvey.Website.Controllers
             var links = _openSourceProjectLinksRepository.GetAllForProject(project.Id);
             return View("details", new OpenSourceProjectDetails(project, links /* images? */));
         }
-
-        // TODO: https://github.com/tombuildsstuff/repositories (use in content; with extra project details available)
     }
 }
