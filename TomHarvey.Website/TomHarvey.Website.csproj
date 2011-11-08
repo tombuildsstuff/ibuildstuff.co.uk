@@ -80,6 +80,10 @@
     <Reference Include="TomHarvey.Core.CastleWindsor">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core.CastleWindsor\bin\Debug\TomHarvey.Core.CastleWindsor.dll</HintPath>
     </Reference>
+    <Reference Include="TomHarvey.Core.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TomHarvey.Core\TomHarvey.Core.Mvc\bin\Debug\TomHarvey.Core.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="WeBuildStuff.PageManagement.Business">
       <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Business\bin\Debug\WeBuildStuff.PageManagement.Business.dll</HintPath>
     </Reference>
@@ -101,6 +105,7 @@
     <Compile Include="Controllers\GetInTouchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\OfflineController.cs" />
     <Compile Include="Controllers\OpenSourceController.cs" />
     <Compile Include="Controllers\PortfolioController.cs" />
     <Compile Include="Controllers\SearchEngineOptimisationController.cs" />
@@ -200,6 +205,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\OpenSource\OpenSourceDetailsSidebar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Offline\SectionOffline.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
