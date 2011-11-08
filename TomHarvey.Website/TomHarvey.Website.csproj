@@ -73,9 +73,6 @@
     <Reference Include="TomHarvey.Admin.Data.NHibernate">
       <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Data.NHibernate\bin\Debug\TomHarvey.Admin.Data.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="TomHarvey.Admin.Fakes">
-      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Fakes\bin\Debug\TomHarvey.Admin.Fakes.dll</HintPath>
-    </Reference>
     <Reference Include="TomHarvey.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
