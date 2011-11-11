@@ -35,8 +35,8 @@ namespace TomHarvey.Website.Controllers
         public ActionResult Details(string id)
         {
             var project = _openSourceProjectDetailsRepository.GetByUrl(id);
-            if (project == null)
-                return new HttpNotFoundResult();
+            if (project == null || project.DeletedByUserId.HasValue || project.DateDeleted.HasValue)
+                return HttpNotFound();
 
             var links = _openSourceProjectLinksRepository.GetAllForProject(project.Id);
             var otherProjects = _openSourceProjectDetailsRepository.GetAll().Where(pd => pd.Id != project.Id).ToList();
