@@ -77,6 +77,9 @@
     <Reference Include="TomHarvey.Admin.Portfolio">
       <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Portfolio\bin\TomHarvey.Admin.Portfolio.dll</HintPath>
     </Reference>
+    <Reference Include="TomHarvey.Admin.Services">
+      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Services\bin\TomHarvey.Admin.Services.dll</HintPath>
+    </Reference>
     <Reference Include="TomHarvey.Core">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
     </Reference>
@@ -113,11 +116,16 @@
     <Reference Include="WeBuildStuff.Shared">
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared\bin\Debug\WeBuildStuff.Shared.dll</HintPath>
     </Reference>
-    <Reference Include="WeBuildStuff.Shared.Business">
+    <Reference Include="WeBuildStuff.Shared.Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Business\bin\Debug\WeBuildStuff.Shared.Business.dll</HintPath>
     </Reference>
     <Reference Include="WeBuildStuff.Shared.Data.NHibernate">
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Data.NHibernate\bin\Debug\WeBuildStuff.Shared.Data.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="WeBuildStuff.Shared.Data.StoredProcedures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Data.StoredProcedures\bin\Debug\WeBuildStuff.Shared.Data.StoredProcedures.dll</HintPath>
     </Reference>
     <Reference Include="WeBuildStuff.Shared.Mvc">
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Mvc\bin\Debug\WeBuildStuff.Shared.Mvc.dll</HintPath>
@@ -173,6 +181,7 @@
     <Content Include="Areas\Web.config" />
     <None Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

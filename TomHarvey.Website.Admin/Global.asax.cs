@@ -12,7 +12,9 @@ using NHibernate;
 using OpenFileSystem.IO;
 using OpenFileSystem.IO.FileSystems.Local;
 using TomHarvey.Core.CastleWindsor;
+using WeBuildStuff.Shared.Business.ErrorHandling.Interfaces;
 using WeBuildStuff.Shared.ComponentRegistration;
+using WeBuildStuff.Shared.Data.StoredProcedures;
 using Configuration = NHibernate.Cfg.Configuration;
 
 namespace TomHarvey.Website.Admin
@@ -56,6 +58,7 @@ namespace TomHarvey.Website.Admin
             foreach (var component in _container.ResolveAll<ISharedComponentRegistration>())
                 component.RegisterAllComponents(ref _container);
 
+            _container.Register(Component.For<ErrorHandlingDatabaseConfigurationDetails>().Instance(ErrorHandlingDatabaseConfigurationDetails.Get("localhost", "ErrorHandling", "DevelopmentUser", "P@1n5OfB3iNg4AtHeArT")));
             _container.Register(Component.For<IFileSystem>().Instance(LocalFileSystem.Instance));
             _container.Register(Component.For<IWindsorContainer>().Instance(_container)); // yes, you read that right.
 
