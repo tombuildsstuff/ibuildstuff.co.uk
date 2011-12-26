@@ -1,4 +1,5 @@
-﻿@using TomHarvey.Website.Models.Portfolio
+﻿@using TomHarvey.Core.Helpers
+@using TomHarvey.Website.Models.Portfolio
 @model PortfolioDetails
 
 @{
@@ -6,7 +7,7 @@
     ViewBag.Sidebar = @Html.Partial("OtherPortfolioItems", Model.PortfolioItems);
 }
 
-@Model.PortfolioItemDetails.Item.FullDetails<br /><br />
+@Html.Raw(Model.PortfolioItemDetails.Item.FullDetails.ToHtmlOutput()) <br /><br />
 
 @{
     if (!string.IsNullOrWhiteSpace(Model.PortfolioItemDetails.Item.LiveUrl))
