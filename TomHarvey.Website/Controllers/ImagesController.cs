@@ -43,7 +43,7 @@ namespace TomHarvey.Website.Controllers
             if (portfolioImage == null || portfolioImage.DateDeleted.HasValue || portfolioImage.DeletedByUserId.HasValue || portfolioImage.PortfolioId != id)
                 return new HttpNotFoundResult();
 
-            var bytes = GetImageContents("Portfolio", portfolioImage.FileName);
+            var bytes = GetImageContents("Portfolio", string.Format("{0}-Original.jpg", portfolioImage.Id));
             if (bytes == null)
                 return new HttpNotFoundResult();
 
@@ -67,7 +67,7 @@ namespace TomHarvey.Website.Controllers
             if (photo == null || photo.Deleted || photo.ServiceId != id)
                 return new HttpNotFoundResult();
 
-            var bytes = GetImageContents("Services", string.Format("{0}.jpg", photo.Id));
+            var bytes = GetImageContents("Services", string.Format("{0}-Original.jpg", photo.Id));
             if (bytes == null)
                 return new HttpNotFoundResult();
 
@@ -79,9 +79,7 @@ namespace TomHarvey.Website.Controllers
             try
             {
                 var filePath = Path.Combine(_settingsRepository.StorageBaseDirectory(),
-                                            Path.DirectorySeparatorChar.ToString(),
                                             folderName,
-                                            Path.DirectorySeparatorChar.ToString(),
                                             fileName);
                 var file = _fileSystem.GetFile(filePath);
                 byte[] fileContent;

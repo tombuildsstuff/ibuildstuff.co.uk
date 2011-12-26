@@ -1,13 +1,10 @@
 using System.Web.Mvc;
+using TomHarvey.Core.Mvc.Attributes;
 
 namespace TomHarvey.Website.Controllers
 {
-    public class BaseController : Controller
+    [CheckIsUnavailable(OfflineController = "offline", OfflineAction = "index")] // check if this particular section is offline..
+    public abstract class BaseController : Controller
     {
-        // TODO: selected menu item
-        protected string WebsiteBaseUrl
-        {
-            get { return HttpContext.Request.Url.Host; }
-        }
     }
 }

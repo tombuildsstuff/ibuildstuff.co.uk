@@ -14,6 +14,7 @@
     <AssemblyName>TomHarvey.Website.Admin</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>true</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +71,15 @@
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Configuration" />
+    <Reference Include="TomHarvey.Admin.OpenSource">
+      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.OpenSource\bin\TomHarvey.Admin.OpenSource.dll</HintPath>
+    </Reference>
+    <Reference Include="TomHarvey.Admin.Portfolio">
+      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Portfolio\bin\TomHarvey.Admin.Portfolio.dll</HintPath>
+    </Reference>
+    <Reference Include="TomHarvey.Admin.Services">
+      <HintPath>..\..\TomHarvey.Admin\TomHarvey.Admin.Services\bin\TomHarvey.Admin.Services.dll</HintPath>
+    </Reference>
     <Reference Include="TomHarvey.Core">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
     </Reference>
@@ -106,11 +116,19 @@
     <Reference Include="WeBuildStuff.Shared">
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared\bin\Debug\WeBuildStuff.Shared.dll</HintPath>
     </Reference>
-    <Reference Include="WeBuildStuff.Shared.Business">
+    <Reference Include="WeBuildStuff.Shared.Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Business\bin\Debug\WeBuildStuff.Shared.Business.dll</HintPath>
     </Reference>
     <Reference Include="WeBuildStuff.Shared.Data.NHibernate">
       <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Data.NHibernate\bin\Debug\WeBuildStuff.Shared.Data.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="WeBuildStuff.Shared.Data.StoredProcedures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Data.StoredProcedures\bin\Debug\WeBuildStuff.Shared.Data.StoredProcedures.dll</HintPath>
+    </Reference>
+    <Reference Include="WeBuildStuff.Shared.Mvc">
+      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Mvc\bin\Debug\WeBuildStuff.Shared.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="WeBuildStuff.UserAuthentication">
       <HintPath>..\..\WeBuildStuff.UserAuthentication\WeBuildStuff.UserAuthentication\bin\WeBuildStuff.UserAuthentication.dll</HintPath>
@@ -136,7 +154,7 @@
     <Content Include="Content\images\user_error.png" />
     <Content Include="Content\images\WeBuildStuff.png" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.7.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
@@ -163,6 +181,7 @@
     <Content Include="Areas\Web.config" />
     <None Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
