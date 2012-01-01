@@ -6,4 +6,4 @@
     ViewBag.SideBar = Html.Partial("OpenSourceDetailsSidebar", Model);
 }
 
-@Model.Project.Description
+@Html.Raw(Model.Project.Description)

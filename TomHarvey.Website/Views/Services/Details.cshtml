@@ -6,4 +6,4 @@
     ViewBag.Sidebar = @Html.Partial("ContactSidebar");
 }
 
-@Model.Service.Description
+@Html.Raw(Model.Service.Description)

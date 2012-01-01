@@ -6,7 +6,7 @@
     ViewBag.Sidebar = @Html.Partial("ContactSidebar");
 }
 
-@Model.Revision.Content
+@Html.Raw(Model.Revision.Content)
 <br /><br />
 
 @{
@@ -16,7 +16,7 @@
         {
             <text>
                 <h3>@Html.ActionLink(service.Title, "details", "services", new { name = service.Url }, null)</h3>
-                @service.Description
+                @Html.Raw(service.Description)
                 <br /><br />
             </text>
         }

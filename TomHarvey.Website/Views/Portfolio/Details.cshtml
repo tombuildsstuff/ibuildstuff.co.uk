@@ -21,7 +21,7 @@
 }
 
 @{
-    if (Model.PortfolioItemDetails.Images.Count() > 0)
+    if (Model.PortfolioItemDetails.Images.Any())
     {
         <h3>Take a Look</h3>
         foreach (var item in Model.PortfolioItemDetails.Images.OrderBy(i => i.IsDefault))

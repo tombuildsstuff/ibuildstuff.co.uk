@@ -6,7 +6,7 @@
     ViewBag.SideBar = @Html.Partial("ContactAdditionalMethodsSidebar");
 }
 
-@Model.Revision.Content
+@Html.Raw(Model.Revision.Content)
 <br /><br />
 
 @{
