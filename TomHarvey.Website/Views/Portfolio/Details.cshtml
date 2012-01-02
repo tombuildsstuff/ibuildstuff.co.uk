@@ -27,7 +27,7 @@
         foreach (var item in Model.PortfolioItemDetails.Images.OrderBy(i => i.IsDefault))
         {
             <text>
-                <img src="@Url.Action("portfolio", "images", new { id = @item.PortfolioId, additional = @item.Id })" alt="@item.Caption" title="@item.Caption" />
+                <img src="@Url.Action("portfolio-medium", "images", new { id = @item.PortfolioId, additional = @item.Id })" alt="@item.Caption" title="@item.Caption" />
             </text>
         }
     }

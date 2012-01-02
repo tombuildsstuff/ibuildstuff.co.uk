@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Web.Mvc;
 using OpenFileSystem.IO;
 using TomHarvey.Admin.Business.Portfolio.Interfaces;
@@ -50,11 +51,29 @@ namespace TomHarvey.Website.Controllers
             return File(bytes, "image/jpeg", portfolioImage.FileName);
         }
 
+        [ActionName("portfolio-medium")]
+        public ActionResult PortfolioMedium(int id, int additional)
+        {
+            var portfolioItem = _portfolioItemsRepository.GetById(id);
+            if (portfolioItem == null || portfolioItem.DateDeleted.HasValue || portfolioItem.DeletedByUserId.HasValue)
+                return new HttpNotFoundResult();
+
+            var portfolioImage = _portfolioImagesRepository.GetById(additional);
+            if (portfolioImage == null || portfolioImage.DateDeleted.HasValue || portfolioImage.DeletedByUserId.HasValue || portfolioImage.PortfolioId != id)
+                return new HttpNotFoundResult();
+
+            var bytes = GetImageContents("Portfolio", string.Format("{0}-Medium.jpg", portfolioImage.Id));
+            if (bytes == null)
+                return new HttpNotFoundResult();
+
+            return File(bytes, "image/jpeg", portfolioImage.FileName);
+        }
+
         [ActionName("portfolio-main")]
         public ActionResult PortfolioMain(int id)
         {
             var main = _portfolioImagesRepository.GetMainForPortfolioItem(id);
-            return RedirectToActionPermanent("portfolio", new { id, additional = main.Id });
+            return RedirectToActionPermanent("portfolio-medium", new { id, additional = main.Id });
         }
 
         public ActionResult Service(int id, int additional)
