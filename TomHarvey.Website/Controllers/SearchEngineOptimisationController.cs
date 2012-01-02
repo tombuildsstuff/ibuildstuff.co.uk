@@ -28,7 +28,7 @@ namespace TomHarvey.Website.Controllers
         public ActionResult Robots()
         {
             var websiteBaseUrl = _settingsRepository.WebsiteBaseUrl();
-            return View("robots", new RobotsModel(websiteBaseUrl));
+            return XmlView("robots", new RobotsModel(websiteBaseUrl));
         }
 
         public ActionResult Sitemap()
@@ -37,8 +37,12 @@ namespace TomHarvey.Website.Controllers
             var portfolioItems = _portfolioItemsRepository.GetAllItems();
             var services = _serviceDetailsRepository.GetAllServiceDetails();
             var websiteBaseUrl = _settingsRepository.WebsiteBaseUrl();
+            return XmlView("sitemap", new SitemapInformation(websiteBaseUrl, pages, portfolioItems, services));
+        }
 
-            return View("sitemap", new SitemapInformation(websiteBaseUrl, pages, portfolioItems, services));
+        private ActionResult XmlView(string view, object model)
+        {
+            return new XmlViewResult().XmlView(view, model);
         }
     }
 }
