@@ -24,17 +24,4 @@
             </url>
        }
    }
-
-   
-   @{
-       foreach (var service in Model.Services)
-       {
-            <url>
-               <loc>@Url.Action("details", "services", new { name = service.Url })</loc>
-               <changefreq>monthly</changefreq>
-               <priority>0.7</priority>
-            </url>
-       }
-   }
-
 </urlset>
