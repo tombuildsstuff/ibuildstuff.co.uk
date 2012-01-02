@@ -1,4 +1,4 @@
-﻿body { font-family: verdana, arial, sans-serif; font-size: 12px; margin: 0; padding: 0 }
+﻿body { font-family: verdana, arial, sans-serif; font-size: 12px; line-height: 180%; margin: 0; padding: 0 }
 
 /* header */
 header { background: #C00 /* or 316ac5 - can change dynamically dependent on the time of year? */; color: #FFF; height: 60px; margin-bottom: 8px }
