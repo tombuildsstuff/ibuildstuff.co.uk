@@ -10,8 +10,8 @@ header { background: #C00 /* or 316ac5 - can change dynamically dependent on the
 /* titles TODO: proper fonts */
 h1, h2, h3, h4 { margin: 4px 0; font-variant: small-caps; line-height: 25px; vertical-align: bottom }
 h1, h2 { color: #333 }
-h3, h4 { color: #444; font-family: Calibri }
-h1 { font-family: Segoe UI; font-size: 18px }
+h3, h4 { color: #444; font-family: calibri, helvetica, arial, sans-serif }
+h1 { font-family: "Segoe UI", calibri, helvetica, arial, sans-serif; font-size: 18px }
 h2 {  }
 h3 { font-size: 16px }
 h4 { font-size: 14px }
