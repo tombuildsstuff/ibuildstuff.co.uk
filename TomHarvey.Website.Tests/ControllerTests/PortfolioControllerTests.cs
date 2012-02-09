@@ -2,8 +2,6 @@
 using System.Web.Mvc;
 using NUnit.Framework;
 using Rhino.Mocks;
-using TomHarvey.Admin.Business.Interfaces;
-using TomHarvey.Admin.Business.Portfolio;
 using TomHarvey.Website.Controllers;
 using TomHarvey.Website.Models.Portfolio;
 

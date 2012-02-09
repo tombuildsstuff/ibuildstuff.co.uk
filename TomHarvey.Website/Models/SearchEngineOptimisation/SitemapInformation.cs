@@ -1,10 +1,11 @@
 using System.Collections.Generic;
-using TomHarvey.Admin.Business.Portfolio;
-using WeBuildStuff.PageManagement.Business;
-using WeBuildStuff.Services.Business;
 
 namespace TomHarvey.Website.Models.SearchEngineOptimisation
 {
+    using WeBuildStuff.CMS.Business.Pages;
+    using WeBuildStuff.CMS.Business.Portfolio;
+    using WeBuildStuff.CMS.Business.Services;
+
     public class SitemapInformation : AbstractSearchEngineModel
     {
         public List<PageDetail> Pages { get; set; }

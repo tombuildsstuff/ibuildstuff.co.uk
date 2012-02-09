@@ -1,11 +1,13 @@
-﻿using System;
-using System.Text;
-using TomHarvey.Core.Communication.Emailing;
-using TomHarvey.Website.Domain.GetInTouch;
-using WeBuildStuff.Shared.Settings;
-
-namespace TomHarvey.Website.Domain.EmailGeneration
+﻿namespace TomHarvey.Website.Domain.EmailGeneration
 {
+    using System;
+    using System.Text;
+    
+    using TomHarvey.Core.Communication.Emailing;
+    using TomHarvey.Website.Domain.GetInTouch;
+    
+    using WeBuildStuff.CMS.Business.Settings.Interfaces;
+
     public static class ContactFormEmail
     {
         public static EmailMessage GenerateEmailMessage(this ContactForm form, string toAlias, string toAddress, string fromAlias, string fromAddress)

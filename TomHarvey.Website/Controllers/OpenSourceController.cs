@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using TomHarvey.Admin.Business.OpenSource.Interfaces;
 using TomHarvey.Website.Models.OpenSource;
-using WeBuildStuff.PageManagement.Business.Interfaces;
 
 namespace TomHarvey.Website.Controllers
 {
+    using WeBuildStuff.CMS.Business.OpenSource.Interfaces;
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+
     public class OpenSourceController : BaseController
     {
         private readonly IPageDetailsRepository _pageDetailsRepository;

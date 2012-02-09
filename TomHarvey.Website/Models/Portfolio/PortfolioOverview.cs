@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using TomHarvey.Admin.Business.Portfolio;
-using WeBuildStuff.PageManagement.Business;
 
 namespace TomHarvey.Website.Models.Portfolio
 {
+    using WeBuildStuff.CMS.Business.Pages;
+    using WeBuildStuff.CMS.Business.Portfolio;
+
     public class PortfolioOverview
     {
         public PageRevision Revision { get; set; }

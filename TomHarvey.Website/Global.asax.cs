@@ -1,33 +1,36 @@
-﻿using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using FluentValidation.Attributes;
-using FluentValidation.Mvc;
-using NHibernate;
-using NHibernate.Cfg;
-using OpenFileSystem.IO;
-using OpenFileSystem.IO.FileSystems.Local;
-using TomHarvey.Admin.Business.OpenSource.Interfaces;
-using TomHarvey.Admin.Business.Portfolio.Interfaces;
-using TomHarvey.Admin.Data.NHibernate.OpenSource;
-using TomHarvey.Admin.Data.NHibernate.Portfolio;
-using TomHarvey.Core.CastleWindsor;
-using TomHarvey.Core.Communication.Emailing;
-using WeBuildStuff.PageManagement.Business.Interfaces;
-using WeBuildStuff.PageManagement.Data.NHibernate;
-using WeBuildStuff.Services.Business.Interfaces;
-using WeBuildStuff.Services.Data.NHibernate;
-using WeBuildStuff.Shared.ComponentRegistration;
-using WeBuildStuff.Shared.Settings;
-
-namespace TomHarvey.Website
+﻿namespace TomHarvey.Website
 {
+    using System;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    
+    using Castle.MicroKernel.Registration;
+    using Castle.Windsor;
+
+    using FluentValidation.Attributes;
+    using FluentValidation.Mvc;
+
+    using OpenFileSystem.IO;
+    using OpenFileSystem.IO.FileSystems.Local;
+
+    using TomHarvey.Core.CastleWindsor;
+    using TomHarvey.Core.Communication.Emailing;
+
+    using WeBuildStuff.CMS.Business.OpenSource.Interfaces;
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+    using WeBuildStuff.CMS.Business.Portfolio.Interfaces;
+    using WeBuildStuff.CMS.Business.Services.Interfaces;
+    using WeBuildStuff.CMS.Business.Settings.Interfaces;
+    using WeBuildStuff.CMS.Data.Simple.OpenSource;
+    using WeBuildStuff.CMS.Data.Simple.Pages;
+    using WeBuildStuff.CMS.Data.Simple.Portfolio;
+    using WeBuildStuff.CMS.Data.Simple.Services;
+    using WeBuildStuff.CMS.Domain.Settings;
+
     public class MvcApplication : HttpApplication
     {
         private static IWindsorContainer _container;
-        private static ISessionFactory _sessionFactory;
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -62,20 +65,12 @@ namespace TomHarvey.Website
             DataAnnotationsModelValidatorProvider.AddImplicitRequiredAttributeForValueTypes = false;
             ModelValidatorProviders.Providers.Add(new FluentValidationModelValidatorProvider(new AttributedValidatorFactory()));
 
-            // windsor
-            if (_sessionFactory == null)
-                _sessionFactory = new Configuration().Configure().BuildSessionFactory();
-
             if (_container == null)
             {
                 var assemblies = AllTypes.FromAssemblyInDirectory(new AssemblyFilter(HttpRuntime.BinDirectory));
                 _container = new WindsorContainer();
                 _container.Register(assemblies.BasedOn<IController>().Configure(c => c.LifeStyle.Transient));
-                _container.Register(assemblies.BasedOn<ISharedComponentRegistration>().Configure(c => c.LifeStyle.Transient));
-                foreach (var component in _container.ResolveAll<ISharedComponentRegistration>())
-                    component.RegisterAllComponents(ref _container);
 
-                _container.Register(Component.For<ISessionFactory>().Instance(_sessionFactory));
                 _container.Register(Component.For<IPageDetailsRepository>().ImplementedBy<PageDetailsRepository>());
                 _container.Register(Component.For<IPageRevisionsRepository>().ImplementedBy<PageRevisionsRepository>());
                 _container.Register(Component.For<IServiceDetailsRepository>().ImplementedBy<ServiceDetailsRepository>());
@@ -88,6 +83,7 @@ namespace TomHarvey.Website
                 _container.Register(Component.For<IOpenSourceProjectDetailsRepository>().ImplementedBy<OpenSourceProjectDetailsRepository>());
                 _container.Register(Component.For<IOpenSourceProjectLinksRepository>().ImplementedBy<OpenSourceProjectLinksRepository>());
             }
+
             AreaRegistration.RegisterAllAreas();
 
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(_container));

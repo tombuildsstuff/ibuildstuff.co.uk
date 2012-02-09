@@ -43,8 +43,8 @@
     <Reference Include="TomHarvey.Core">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
     </Reference>
-    <Reference Include="WeBuildStuff.Shared">
-      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared\bin\Debug\WeBuildStuff.Shared.dll</HintPath>
+    <Reference Include="WeBuildStuff.CMS.Business">
+      <HintPath>..\..\WeBuildStuff.CMS\WeBuildStuff.CMS.Business\bin\Debug\WeBuildStuff.CMS.Business.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

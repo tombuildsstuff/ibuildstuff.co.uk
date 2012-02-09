@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using TomHarvey.Admin.Business.Portfolio.Interfaces;
 using TomHarvey.Website.Models.Portfolio;
-using WeBuildStuff.PageManagement.Business.Interfaces;
 
 namespace TomHarvey.Website.Controllers
 {
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+    using WeBuildStuff.CMS.Business.Portfolio.Interfaces;
+
     public class PortfolioController : BaseController
     {
         private readonly IPageDetailsRepository _pageDetailsRepository;
