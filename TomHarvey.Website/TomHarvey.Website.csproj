@@ -135,6 +135,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\avenir.font.js" />
     <Content Include="Scripts\cufon.js" />
+    <Content Include="Scripts\ga.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
