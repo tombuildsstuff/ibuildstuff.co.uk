@@ -3,11 +3,12 @@ using TomHarvey.Core.Communication.Emailing;
 using TomHarvey.Website.Domain.EmailGeneration;
 using TomHarvey.Website.Domain.GetInTouch;
 using TomHarvey.Website.Models.GetInTouch;
-using WeBuildStuff.PageManagement.Business.Interfaces;
-using WeBuildStuff.Shared.Settings;
 
 namespace TomHarvey.Website.Controllers
 {
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+    using WeBuildStuff.CMS.Business.Settings.Interfaces;
+
     public class GetInTouchController : BaseController
     {
         public readonly IEmailMailerService EmailService;

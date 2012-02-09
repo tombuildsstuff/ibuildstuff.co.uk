@@ -1,9 +1,10 @@
 ﻿using FluentValidation.Results;
 using TomHarvey.Website.Domain.GetInTouch;
-using WeBuildStuff.PageManagement.Business;
 
 namespace TomHarvey.Website.Models.GetInTouch
 {
+    using WeBuildStuff.CMS.Business.Pages;
+
     public class GetInTouchOverview
     {
         public PageRevision Revision { get; set; }

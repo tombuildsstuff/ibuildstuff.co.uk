@@ -1,18 +1,22 @@
-﻿using System.Web.Mvc;
-using NUnit.Framework;
-using Rhino.Mocks;
-using TomHarvey.Core.Communication.Emailing;
-using TomHarvey.Website.Controllers;
-using TomHarvey.Website.Domain.EmailGeneration;
-using TomHarvey.Website.Domain.GetInTouch;
-using TomHarvey.Website.Models.GetInTouch;
-using WeBuildStuff.PageManagement.Business;
-using WeBuildStuff.PageManagement.Business.Interfaces;
-using WeBuildStuff.PageManagement.Fakes;
-using WeBuildStuff.Shared.Settings;
-
-namespace TomHarvey.Website.Tests.ControllerTests
+﻿namespace TomHarvey.Website.Tests.ControllerTests
 {
+    using System.Web.Mvc;
+    
+    using NUnit.Framework;
+    
+    using Rhino.Mocks;
+    
+    using TomHarvey.Core.Communication.Emailing;
+    using TomHarvey.Website.Controllers;
+    using TomHarvey.Website.Domain.EmailGeneration;
+    using TomHarvey.Website.Domain.GetInTouch;
+    using TomHarvey.Website.Models.GetInTouch;
+
+    using WeBuildStuff.CMS.Business.Pages;
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+    using WeBuildStuff.CMS.Business.Settings.Interfaces;
+    using WeBuildStuff.CMS.Fakes.Pages;
+
     [TestFixture]
     public class GetInTouchControllerTests
     {

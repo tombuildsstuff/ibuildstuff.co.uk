@@ -1,15 +1,15 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Web.Mvc;
 using OpenFileSystem.IO;
-using TomHarvey.Admin.Business.Portfolio.Interfaces;
 using TomHarvey.Core.Helpers;
-using WeBuildStuff.Services.Business.Interfaces;
-using WeBuildStuff.Shared.Settings;
 using Path = System.IO.Path;
 
 namespace TomHarvey.Website.Controllers
 {
+    using WeBuildStuff.CMS.Business.Portfolio.Interfaces;
+    using WeBuildStuff.CMS.Business.Services.Interfaces;
+    using WeBuildStuff.CMS.Business.Settings.Interfaces;
+
     public class ImagesController : BaseController
     {
         private readonly IPortfolioItemsRepository _portfolioItemsRepository;

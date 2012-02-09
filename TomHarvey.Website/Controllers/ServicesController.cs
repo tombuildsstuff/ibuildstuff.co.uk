@@ -1,11 +1,13 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using TomHarvey.Website.Models.Services;
-using WeBuildStuff.PageManagement.Business.Interfaces;
-using WeBuildStuff.Services.Business.Interfaces;
-
-namespace TomHarvey.Website.Controllers
+﻿namespace TomHarvey.Website.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using TomHarvey.Website.Models.Services;
+
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+    using WeBuildStuff.CMS.Business.Services.Interfaces;
+
     public class ServicesController : BaseController
     {
         private readonly IPageDetailsRepository _pageDetailsRepository;

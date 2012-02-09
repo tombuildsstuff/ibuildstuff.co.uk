@@ -1,8 +1,9 @@
-using System.Collections.Generic;
-using WeBuildStuff.Services.Business;
-
 namespace TomHarvey.Website.Models.Services
 {
+    using System.Collections.Generic;
+    
+    using WeBuildStuff.CMS.Business.Services;
+
     public class ServiceInformation
     {
         public ServiceDetail Service { get; set; }

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using TomHarvey.Admin.Business.OpenSource;
 
 namespace TomHarvey.Website.Models.OpenSource
 {
+    using WeBuildStuff.CMS.Business.OpenSource;
+
     public class OpenSourceProjectDetails
     {
         public OpenSourceProjectDetail Project { get; set; }

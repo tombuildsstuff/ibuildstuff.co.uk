@@ -1,12 +1,13 @@
 ﻿using System.Web.Mvc;
-using TomHarvey.Admin.Business.Portfolio.Interfaces;
 using TomHarvey.Website.Models.SearchEngineOptimisation;
-using WeBuildStuff.PageManagement.Business.Interfaces;
-using WeBuildStuff.Services.Business.Interfaces;
-using WeBuildStuff.Shared.Settings;
 
 namespace TomHarvey.Website.Controllers
 {
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+    using WeBuildStuff.CMS.Business.Portfolio.Interfaces;
+    using WeBuildStuff.CMS.Business.Services.Interfaces;
+    using WeBuildStuff.CMS.Business.Settings.Interfaces;
+
     public class SearchEngineOptimisationController : BaseController
     {
         private readonly IPageDetailsRepository _pageDetailsRepository;

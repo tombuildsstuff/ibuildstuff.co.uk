@@ -1,9 +1,10 @@
-using System.Collections.Generic;
-using TomHarvey.Admin.Business.OpenSource;
-using WeBuildStuff.PageManagement.Business;
-
 namespace TomHarvey.Website.Models.OpenSource
 {
+    using System.Collections.Generic;
+
+    using WeBuildStuff.CMS.Business.OpenSource;
+    using WeBuildStuff.CMS.Business.Pages;
+
     public class OpenSourceProjectsOverview
     {
         public PageRevision Revision { get; set; }

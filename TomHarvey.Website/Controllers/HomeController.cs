@@ -1,8 +1,9 @@
 ﻿using System.Web.Mvc;
-using WeBuildStuff.PageManagement.Business.Interfaces;
 
 namespace TomHarvey.Website.Controllers
 {
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+
     public class HomeController : BaseController
     {
         private readonly IPageDetailsRepository _pageDetailsRepository;

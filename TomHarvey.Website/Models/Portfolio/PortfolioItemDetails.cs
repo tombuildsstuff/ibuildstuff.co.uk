@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using TomHarvey.Admin.Business.Portfolio;
 
 namespace TomHarvey.Website.Models.Portfolio
 {
+    using WeBuildStuff.CMS.Business.Portfolio;
+
     public class PortfolioItemDetails
     {
         public PortfolioItem Item { get; set; }
