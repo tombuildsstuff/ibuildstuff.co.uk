@@ -130,6 +130,7 @@
     <Compile Include="XmlViewResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\favicon.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\screen.css" />
     <Content Include="Global.asax" />
