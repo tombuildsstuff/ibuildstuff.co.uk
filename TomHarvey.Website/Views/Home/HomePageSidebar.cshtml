@@ -1,0 +1,14 @@
+﻿@model TomHarvey.Website.Models.Home.HomePageOverview
+
+@{
+    if (Model.BlogPosts != null && Model.BlogPosts.Any())
+    {
+        <h3>Latest Blog Posts</h3>
+        <ul>
+            @foreach (var post in Model.BlogPosts)
+            {
+                <li><a href="@string.Format("{0}/posts/{1}/{2}/{3}/{4}", Model.BlogBaseUrl, post.PublishDate.Value.Year, post.PublishDate.Value.Month, post.PublishDate.Value.Day, post.FriendlyUrl)">@post.Title</a></li>
+            }
+        </ul>
+    }
+}

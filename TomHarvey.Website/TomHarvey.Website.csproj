@@ -48,6 +48,15 @@
     <Reference Include="FluentValidation.Mvc">
       <HintPath>..\..\Binaries\FluentValidation\MVC\MVC3\FluentValidation.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="MvcBlog.Entities">
+      <HintPath>..\..\MvcBlog\MvcBlog.Entities\bin\Debug\MvcBlog.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcBlog.Repositories">
+      <HintPath>..\..\MvcBlog\MvcBlog.Repositories\bin\Debug\MvcBlog.Repositories.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcBlog.Repositories.SimpleData">
+      <HintPath>..\..\MvcBlog\MvcBlog.Repositories.SimpleData\bin\Debug\MvcBlog.Repositories.SimpleData.dll</HintPath>
+    </Reference>
     <Reference Include="OpenFileSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Binaries\OpenFileSystem\OpenFileSystem.dll</HintPath>
@@ -106,6 +115,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\GetInTouch\GetInTouchOverview.cs" />
+    <Compile Include="Models\Home\HomePageOverview.cs" />
     <Compile Include="Models\OpenSource\OpenSourceProjectDetails.cs" />
     <Compile Include="Models\OpenSource\OpenSourceProjectsOverview.cs" />
     <Compile Include="Models\Portfolio\PortfolioDetails.cs" />
@@ -205,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\HomePageSidebar.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

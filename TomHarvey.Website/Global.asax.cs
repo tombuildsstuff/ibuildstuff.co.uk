@@ -10,6 +10,9 @@
     using FluentValidation.Attributes;
     using FluentValidation.Mvc;
 
+    using MvcBlog.Repositories;
+    using MvcBlog.Repositories.SimpleData;
+
     using OpenFileSystem.IO;
     using OpenFileSystem.IO.FileSystems.Local;
 
@@ -76,6 +79,7 @@
                 _container.Register(Component.For<IPortfolioImagesRepository>().ImplementedBy<PortfolioImagesRepository>());
                 _container.Register(Component.For<IOpenSourceProjectDetailsRepository>().ImplementedBy<OpenSourceProjectDetailsRepository>());
                 _container.Register(Component.For<IOpenSourceProjectLinksRepository>().ImplementedBy<OpenSourceProjectLinksRepository>());
+                _container.Register(Component.For<IPostsRepository>().ImplementedBy<PostsRepository>());
             }
 
             AreaRegistration.RegisterAllAreas();
