@@ -1,6 +1,5 @@
 ﻿namespace TomHarvey.Website
 {
-    using System;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
@@ -45,6 +44,7 @@
             routes.MapRoute("OpenSourceRoute", "open-source/{id}", new { controller = "opensource", action = "details" });
             routes.MapRoute("OpenSourceMainPage", "open-source", new { controller = "opensource", action = "index" });
             routes.MapRoute("PortfolioElement", "portfolio/{name}", new { controller = "portfolio", action = "details" });
+            routes.MapRoute("PortfolioMainPage", "portfolio", new { controller = "portfolio", action = "index" });
             routes.MapRoute("ServicesElement", "services/{name}", new { controller = "services", action = "details" });
             routes.MapRoute("SEOSitemap", "sitemap.xml", new { controller = "searchengineoptimisation", action = "sitemap" });
             routes.MapRoute("SEORobots", "robots.txt", new { controller = "searchengineoptimisation", action = "robots" });
