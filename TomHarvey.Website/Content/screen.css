@@ -7,7 +7,7 @@ header { background: #C00 /* or 316ac5 - can change dynamically dependent on the
 .container { margin: auto; width: 980px }
 .clear { clear: both }
             
-/* titles TODO: proper fonts */
+/* titles */
 h1, h2, h3, h4 { margin: 4px 0; font-variant: small-caps; line-height: 25px; vertical-align: bottom }
 h1, h2 { color: #333 }
 h3, h4 { color: #444; font-family: calibri, helvetica, arial, sans-serif }
@@ -16,12 +16,17 @@ h2 {  }
 h3 { font-size: 16px }
 h4 { font-size: 14px }
 
+/* links */
+a { color: #C00; text-decoration: none }
+a:hover { text-decoration: underline }
+
 /* navigation */
 header nav { float: right }
 header nav ul { list-style-type: none; margin: 0; padding: 0; margin-top: 4px }
 header nav ul li { cursor: pointer; float: left; padding: 14px 30px 0; margin-right: 4px; height: 35px }
 header nav ul li a { color: #FFF; display: block; font-family: "Avenir LT 55 Roman"; font-size: 15px; text-decoration: none }
-header nav ul li:hover { background-color:rgba(255,255,255,0.2);border: 1px solid rgba(255, 255, 255, 0.4); margin-right: 2px }
+header nav ul li:hover { background-color: rgba(255,255,255,0.2); border: 1px solid rgba(255, 255, 255, 0.4); margin-right: 2px; }
+header nav ul li a:hover { text-decoration: none }
             
 /* content */
 #content { float: left; width: 700px }
