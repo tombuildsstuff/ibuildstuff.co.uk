@@ -12,13 +12,12 @@ using NHibernate;
 using OpenFileSystem.IO;
 using OpenFileSystem.IO.FileSystems.Local;
 using TomHarvey.Core.CastleWindsor;
-using WeBuildStuff.Shared.Business.ErrorHandling.Interfaces;
-using WeBuildStuff.Shared.ComponentRegistration;
-using WeBuildStuff.Shared.Data.StoredProcedures;
 using Configuration = NHibernate.Cfg.Configuration;
 
 namespace TomHarvey.Website.Admin
 {
+    using System;
+
     public class MvcApplication : HttpApplication
     {
         private static IWindsorContainer _container;
@@ -54,11 +53,13 @@ namespace TomHarvey.Website.Admin
 
             var assemblies = AllTypes.FromAssemblyInDirectory(new AssemblyFilter(HttpRuntime.BinDirectory));
             _container.Register(assemblies.BasedOn<IController>().Configure(c => c.LifeStyle.Transient));
-            _container.Register(assemblies.BasedOn<ISharedComponentRegistration>().Configure(c => c.LifeStyle.Transient));
-            foreach (var component in _container.ResolveAll<ISharedComponentRegistration>())
-                component.RegisterAllComponents(ref _container);
+            throw new NotImplementedException();
 
-            _container.Register(Component.For<ErrorHandlingDatabaseConfigurationDetails>().Instance(ErrorHandlingDatabaseConfigurationDetails.Get("localhost", "ErrorHandling", "DevelopmentUser", "P@1n5OfB3iNg4AtHeArT")));
+            ////_container.Register(assemblies.BasedOn<ISharedComponentRegistration>().Configure(c => c.LifeStyle.Transient));
+            ////foreach (var component in _container.ResolveAll<ISharedComponentRegistration>())
+            ////    component.RegisterAllComponents(ref _container);
+            ////
+            ////_container.Register(Component.For<ErrorHandlingDatabaseConfigurationDetails>().Instance(ErrorHandlingDatabaseConfigurationDetails.Get("localhost", "ErrorHandling", "DevelopmentUser", "P@1n5OfB3iNg4AtHeArT")));
             _container.Register(Component.For<IFileSystem>().Instance(LocalFileSystem.Instance));
             _container.Register(Component.For<IWindsorContainer>().Instance(_container)); // yes, you read that right.
 

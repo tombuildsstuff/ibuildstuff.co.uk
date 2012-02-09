@@ -89,56 +89,6 @@
     <Reference Include="TomHarvey.Core.Mvc">
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core.Mvc\bin\Debug\TomHarvey.Core.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="WeBuildStuff.AdminClientCore">
-      <HintPath>..\..\WeBuildStuff.AdminClientCore\WeBuildStuff.AdminClientCore\bin\Debug\WeBuildStuff.AdminClientCore.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Dashboard">
-      <HintPath>..\..\WeBuildStuff.Dashboard\WeBuildStuff.Dashboard\bin\WeBuildStuff.Dashboard.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.PageManagement">
-      <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement\bin\WeBuildStuff.PageManagement.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.PageManagement.Business">
-      <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Business\bin\Debug\WeBuildStuff.PageManagement.Business.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.PageManagement.Data.NHibernate">
-      <HintPath>..\..\WeBuildStuff.PageManagement\WeBuildStuff.PageManagement.Data.NHibernate\bin\Debug\WeBuildStuff.PageManagement.Data.NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Services.Admin">
-      <HintPath>..\..\WeBuildStuff.Services\WeBuildStuff.Services.Admin\bin\WeBuildStuff.Services.Admin.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Services.Business">
-      <HintPath>..\..\WeBuildStuff.Services\WeBuildStuff.Services.Business\bin\Debug\WeBuildStuff.Services.Business.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Services.Data.NHibernate">
-      <HintPath>..\..\WeBuildStuff.Services\WeBuildStuff.Services.Data.NHibernate\bin\Debug\WeBuildStuff.Services.Data.NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Shared">
-      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared\bin\Debug\WeBuildStuff.Shared.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Shared.Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Business\bin\Debug\WeBuildStuff.Shared.Business.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Shared.Data.NHibernate">
-      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Data.NHibernate\bin\Debug\WeBuildStuff.Shared.Data.NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Shared.Data.StoredProcedures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Data.StoredProcedures\bin\Debug\WeBuildStuff.Shared.Data.StoredProcedures.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.Shared.Mvc">
-      <HintPath>..\..\WeBuildStuff.Shared\WeBuildStuff.Shared.Mvc\bin\Debug\WeBuildStuff.Shared.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.UserAuthentication">
-      <HintPath>..\..\WeBuildStuff.UserAuthentication\WeBuildStuff.UserAuthentication\bin\WeBuildStuff.UserAuthentication.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.UserAuthentication.Business">
-      <HintPath>..\..\WeBuildStuff.UserAuthentication\WeBuildStuff.UserAuthentication.Business\bin\Debug\WeBuildStuff.UserAuthentication.Business.dll</HintPath>
-    </Reference>
-    <Reference Include="WeBuildStuff.UserAuthentication.Data.NHibernate">
-      <HintPath>..\..\WeBuildStuff.UserAuthentication\WeBuildStuff.UserAuthentication.Data\bin\Debug\WeBuildStuff.UserAuthentication.Data.NHibernate.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
