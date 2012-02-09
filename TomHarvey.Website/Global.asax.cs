@@ -49,14 +49,8 @@
             routes.MapRoute("SEOSitemap", "sitemap.xml", new { controller = "searchengineoptimisation", action = "sitemap" });
             routes.MapRoute("SEORobots", "robots.txt", new { controller = "searchengineoptimisation", action = "robots" });
 
-            routes.MapRoute(
-                 "DefaultWithAdditional", // Route name
-                 "{controller}/{action}/{id}/{additional}", // URL with parameters
-                 new { controller = "Home", action = "Index", id = UrlParameter.Optional, additional = UrlParameter.Optional }); // Parameter defaults
-            routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional }); // Parameter defaults
+            routes.MapRoute("DefaultWithAdditional", "{controller}/{action}/{id}/{additional}");
+            routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }
 
         protected void Application_Start()
