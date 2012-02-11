@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = @Model.Title;
-    ViewBag.SideBar = null;
+    ViewBag.SideBar = @Html.Partial("ContactAdditionalMethodsSidebar");
 }
 
 @Html.Raw(Model.Content)

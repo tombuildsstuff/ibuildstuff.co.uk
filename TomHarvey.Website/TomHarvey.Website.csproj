@@ -132,6 +132,7 @@
   <ItemGroup>
     <Content Include="Content\Images\favicon.png" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\tom.jpg" />
     <Content Include="Content\screen.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\avenir.font.js" />
