@@ -8,5 +8,10 @@ namespace TomHarvey.Website.Controllers
         {
             return View("SectionOffline");
         }
+
+        public ViewResult Error()
+        {
+            return View("Unavailable");
+        }
     }
 }
