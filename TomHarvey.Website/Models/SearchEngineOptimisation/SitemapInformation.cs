@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-
 namespace TomHarvey.Website.Models.SearchEngineOptimisation
 {
+    using System.Collections.Generic;
+
     using WeBuildStuff.CMS.Business.Pages;
     using WeBuildStuff.CMS.Business.Portfolio;
     using WeBuildStuff.CMS.Business.Services;
