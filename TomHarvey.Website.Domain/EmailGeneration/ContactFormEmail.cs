@@ -3,9 +3,9 @@
     using System;
     using System.Text;
     
-    using TomHarvey.Core.Communication.Emailing;
     using TomHarvey.Website.Domain.GetInTouch;
-    
+
+    using WeBuildStuff.CMS.Business.Messaging.Email;
     using WeBuildStuff.CMS.Business.Settings.Interfaces;
 
     public static class ContactFormEmail

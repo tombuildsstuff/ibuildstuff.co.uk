@@ -85,25 +85,20 @@
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Xml" />
-    <Reference Include="TomHarvey.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="TomHarvey.Core.CastleWindsor">
-      <HintPath>..\..\TomHarvey.Core\TomHarvey.Core.CastleWindsor\bin\Debug\TomHarvey.Core.CastleWindsor.dll</HintPath>
-    </Reference>
-    <Reference Include="TomHarvey.Core.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\TomHarvey.Core\TomHarvey.Core.Mvc\bin\Debug\TomHarvey.Core.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="WeBuildStuff.CMS.Business">
       <HintPath>..\..\WeBuildStuff.CMS\WeBuildStuff.CMS.Business\bin\Debug\WeBuildStuff.CMS.Business.dll</HintPath>
     </Reference>
     <Reference Include="WeBuildStuff.CMS.Data.Simple">
       <HintPath>..\..\WeBuildStuff.CMS\WeBuildStuff.CMS.Data.Simple\bin\Debug\WeBuildStuff.CMS.Data.Simple.dll</HintPath>
     </Reference>
+    <Reference Include="WeBuildStuff.CMS.DependencyInjection">
+      <HintPath>..\..\WeBuildStuff.CMS\WeBuildStuff.CMS.DependencyInjection\bin\Debug\WeBuildStuff.CMS.DependencyInjection.dll</HintPath>
+    </Reference>
     <Reference Include="WeBuildStuff.CMS.Domain">
       <HintPath>..\..\WeBuildStuff.CMS\WeBuildStuff.CMS.Domain\bin\Debug\WeBuildStuff.CMS.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="WeBuildStuff.CMS.Mvc">
+      <HintPath>..\..\WeBuildStuff.CMS\WeBuildStuff.CMS.Mvc\bin\Debug\WeBuildStuff.CMS.Mvc.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

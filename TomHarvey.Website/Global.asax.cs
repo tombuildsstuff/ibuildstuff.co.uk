@@ -3,9 +3,6 @@
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
-    
-    using Castle.MicroKernel.Registration;
-    using Castle.Windsor;
 
     using FluentValidation.Attributes;
     using FluentValidation.Mvc;
@@ -16,9 +13,6 @@
     using OpenFileSystem.IO;
     using OpenFileSystem.IO.FileSystems.Local;
 
-    using TomHarvey.Core.CastleWindsor;
-    using TomHarvey.Core.Communication.Emailing;
-
     using WeBuildStuff.CMS.Business.OpenSource.Interfaces;
     using WeBuildStuff.CMS.Business.Pages.Interfaces;
     using WeBuildStuff.CMS.Business.Portfolio.Interfaces;
@@ -28,11 +22,16 @@
     using WeBuildStuff.CMS.Data.Simple.Pages;
     using WeBuildStuff.CMS.Data.Simple.Portfolio;
     using WeBuildStuff.CMS.Data.Simple.Services;
+    using WeBuildStuff.CMS.DependencyInjection;
+    using WeBuildStuff.CMS.DependencyInjection.CastleWindsor;
+    using WeBuildStuff.CMS.Domain.Messaging.Email.Implementations;
+    using WeBuildStuff.CMS.Domain.Messaging.Email.Interfaces;
     using WeBuildStuff.CMS.Domain.Settings;
+    using WeBuildStuff.CMS.Mvc.ControllerFactories;
 
     public class MvcApplication : HttpApplication
     {
-        private static IWindsorContainer _container;
+        private static IDependencyManager _dependencyManager;
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -62,29 +61,27 @@
             DataAnnotationsModelValidatorProvider.AddImplicitRequiredAttributeForValueTypes = false;
             ModelValidatorProviders.Providers.Add(new FluentValidationModelValidatorProvider(new AttributedValidatorFactory()));
 
-            if (_container == null)
+            if (_dependencyManager == null)
             {
-                var assemblies = AllTypes.FromAssemblyInDirectory(new AssemblyFilter(HttpRuntime.BinDirectory));
-                _container = new WindsorContainer();
-                _container.Register(assemblies.BasedOn<IController>().LifestyleTransient());
-
-                _container.Register(Component.For<IPageDetailsRepository>().ImplementedBy<PageDetailsRepository>());
-                _container.Register(Component.For<IPageRevisionsRepository>().ImplementedBy<PageRevisionsRepository>());
-                _container.Register(Component.For<IServiceDetailsRepository>().ImplementedBy<ServiceDetailsRepository>());
-                _container.Register(Component.For<IServicePhotosRepository>().ImplementedBy<ServicePhotosRepository>());
-                _container.Register(Component.For<ISettingsRepository>().ImplementedBy<ConfigurationBasedSettingsRepository>());
-                _container.Register(Component.For<IFileSystem>().Instance(LocalFileSystem.Instance));
-                _container.Register(Component.For<IEmailMailerService>().ImplementedBy<ImmediateEmailMailerService>());
-                _container.Register(Component.For<IPortfolioItemsRepository>().ImplementedBy<PortfolioItemsRepository>());
-                _container.Register(Component.For<IPortfolioImagesRepository>().ImplementedBy<PortfolioImagesRepository>());
-                _container.Register(Component.For<IOpenSourceProjectDetailsRepository>().ImplementedBy<OpenSourceProjectDetailsRepository>());
-                _container.Register(Component.For<IOpenSourceProjectLinksRepository>().ImplementedBy<OpenSourceProjectLinksRepository>());
-                _container.Register(Component.For<IPostsRepository>().ImplementedBy<PostsRepository>());
+                _dependencyManager = new CastleWindsorDependencyManager();
+                _dependencyManager.RegisterAllImplementationsInDirectory<IController>(HttpRuntime.BinDirectory);
+                _dependencyManager.RegisterImplementation<IPageDetailsRepository, PageDetailsRepository>();
+                _dependencyManager.RegisterImplementation<IPageRevisionsRepository, PageRevisionsRepository>();
+                _dependencyManager.RegisterImplementation<IServiceDetailsRepository, ServiceDetailsRepository>();
+                _dependencyManager.RegisterImplementation<IServicePhotosRepository, ServicePhotosRepository>();
+                _dependencyManager.RegisterImplementation<ISettingsRepository, ConfigurationBasedSettingsRepository>();
+                _dependencyManager.RegisterImplementation<IEmailService, ImmediateEmailService>();
+                _dependencyManager.RegisterImplementation<IPortfolioItemsRepository, PortfolioItemsRepository>();
+                _dependencyManager.RegisterImplementation<IPortfolioImagesRepository, PortfolioImagesRepository>();
+                _dependencyManager.RegisterImplementation<IOpenSourceProjectDetailsRepository, OpenSourceProjectDetailsRepository>();
+                _dependencyManager.RegisterImplementation<IOpenSourceProjectLinksRepository, OpenSourceProjectLinksRepository>();
+                _dependencyManager.RegisterImplementation<IPostsRepository, PostsRepository>();
+                _dependencyManager.RegisterInstance<IFileSystem>(LocalFileSystem.Instance);
             }
 
             AreaRegistration.RegisterAllAreas();
 
-            ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(_container));
+            ControllerBuilder.Current.SetControllerFactory(new DependencyManagerControllerFactory(_dependencyManager));
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
