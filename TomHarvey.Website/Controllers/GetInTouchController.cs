@@ -2,22 +2,22 @@
 {
     using System.Web.Mvc;
 
-    using TomHarvey.Core.Communication.Emailing;
     using TomHarvey.Website.Domain.EmailGeneration;
     using TomHarvey.Website.Domain.GetInTouch;
     using TomHarvey.Website.Models.GetInTouch;
 
     using WeBuildStuff.CMS.Business.Pages.Interfaces;
     using WeBuildStuff.CMS.Business.Settings.Interfaces;
+    using WeBuildStuff.CMS.Domain.Messaging.Email.Interfaces;
 
     public class GetInTouchController : BaseController
     {
-        private readonly IEmailMailerService _emailService;
+        private readonly IEmailService _emailService;
         private readonly ISettingsRepository _settingsRepository;
         private readonly IPageDetailsRepository _pageDetailsRepository;
         private readonly IPageRevisionsRepository _pageRevisionsRepository;
 
-        public GetInTouchController(IEmailMailerService emailService,
+        public GetInTouchController(IEmailService emailService,
                                     ISettingsRepository settingsRepository,
                                     IPageDetailsRepository pageDetailsRepository,
                                     IPageRevisionsRepository pageRevisionsRepository)

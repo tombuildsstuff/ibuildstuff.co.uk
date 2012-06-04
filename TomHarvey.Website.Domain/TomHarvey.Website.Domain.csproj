@@ -41,9 +41,6 @@
       <HintPath>..\packages\FluentValidation.3.3.1.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="TomHarvey.Core">
-      <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>
-    </Reference>
     <Reference Include="WeBuildStuff.CMS.Business">
       <HintPath>..\..\WeBuildStuff.CMS\WeBuildStuff.CMS.Business\bin\Debug\WeBuildStuff.CMS.Business.dll</HintPath>
     </Reference>

@@ -1,7 +1,7 @@
-using FluentValidation;
-
 namespace TomHarvey.Website.Domain.GetInTouch
 {
+    using FluentValidation;
+
     public class ContactForm
     {
         public string Name { get; set; }
