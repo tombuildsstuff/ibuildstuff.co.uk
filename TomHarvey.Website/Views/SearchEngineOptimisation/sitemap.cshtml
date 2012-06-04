@@ -6,11 +6,11 @@
    @{
        foreach (var page in Model.Pages)
        {
-            <url>
-               <loc>@page.Url</loc>
-               <changefreq>monthly</changefreq>
+           <url>
+               <loc>@string.Concat(Model.WebsiteBaseUriStem, page.Url)</loc>
+               <changefreq>daily</changefreq>
                <priority>0.8</priority>
-            </url>
+           </url>
         }
    }
    
@@ -18,8 +18,8 @@
        foreach (var portfolioItem in Model.PortfolioItems)
        {
             <url>
-               <loc>@Url.Action("details", "portfolio", new { name = portfolioItem.FriendlyUrl })</loc>
-               <changefreq>monthly</changefreq>
+               <loc>@string.Concat(Model.WebsiteBaseUriStem, Url.Action("details", "portfolio", new { name = portfolioItem.FriendlyUrl }))</loc>
+               <changefreq>daily</changefreq>
                <priority>0.7</priority>
             </url>
        }

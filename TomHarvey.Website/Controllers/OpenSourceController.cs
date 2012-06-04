@@ -1,11 +1,13 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using TomHarvey.Admin.Business.OpenSource.Interfaces;
-using TomHarvey.Website.Models.OpenSource;
-using WeBuildStuff.PageManagement.Business.Interfaces;
-
-namespace TomHarvey.Website.Controllers
+﻿namespace TomHarvey.Website.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using TomHarvey.Website.Models.OpenSource;
+
+    using WeBuildStuff.CMS.Business.OpenSource.Interfaces;
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+
     public class OpenSourceController : BaseController
     {
         private readonly IPageDetailsRepository _pageDetailsRepository;
@@ -26,8 +28,8 @@ namespace TomHarvey.Website.Controllers
 
         public ViewResult Index()
         {
-            var page = _pageDetailsRepository.GetPageDetailsByName("OpenSource");
-            var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
+            var page = _pageDetailsRepository.GetByName("OpenSource");
+            var revision = _pageRevisionsRepository.GetLatestRevision(page.Id);
             var projects = _openSourceProjectDetailsRepository.GetAll();
             return View("index", new OpenSourceProjectsOverview(revision, projects));
         }

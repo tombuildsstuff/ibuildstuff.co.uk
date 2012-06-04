@@ -10,7 +10,7 @@
 <br /><br />
 
 @{
-    if (Model.Services.Count > 0)
+    if (Model.Services.Any())
     {
         foreach (var service in Model.Services)
         {

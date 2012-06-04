@@ -1,10 +1,8 @@
-﻿@using WeBuildStuff.PageManagement.Business
-@model PageRevision
+﻿@model TomHarvey.Website.Models.Home.HomePageOverview
 
 @{
-    ViewBag.Title = @Model.Title;
+    ViewBag.Title = @Model.Revision.Title;
+    ViewBag.Sidebar = @Html.Partial("HomePageSidebar", Model);
 }
 
-@Html.Raw(Model.Content)
-
-@{ /* TODO: home page could have twitter contents, calls to action etc. */ }
+@Html.Raw(Model.Revision.Content)

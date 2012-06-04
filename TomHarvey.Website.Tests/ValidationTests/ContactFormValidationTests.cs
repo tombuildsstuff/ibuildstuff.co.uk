@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using NUnit.Framework;
-using TomHarvey.Website.Domain.GetInTouch;
-
-namespace TomHarvey.Website.Tests.ValidationTests
+﻿namespace TomHarvey.Website.Tests.ValidationTests
 {
+    using System.Linq;
+    using NUnit.Framework;
+    using TomHarvey.Website.Domain.GetInTouch;
+
     [TestFixture]
     public class ContactFormValidationTests
     {
@@ -21,7 +21,7 @@ namespace TomHarvey.Website.Tests.ValidationTests
             var result = _validator.Validate(form);
 
             Assert.False(result.IsValid);
-            Assert.AreEqual(1, result.Errors.Where(e => e != null).Count());
+            Assert.AreEqual(1, result.Errors.Count(e => e != null));
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace TomHarvey.Website.Tests.ValidationTests
             var result = _validator.Validate(form);
 
             Assert.False(result.IsValid);
-            Assert.AreEqual(1, result.Errors.Where(e => e != null).Count());
+            Assert.AreEqual(1, result.Errors.Count(e => e != null));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace TomHarvey.Website.Tests.ValidationTests
             var result = _validator.Validate(form);
 
             Assert.False(result.IsValid);
-            Assert.AreEqual(1, result.Errors.Where(e => e != null).Count());
+            Assert.AreEqual(1, result.Errors.Count(e => e != null));
         }
     }
 }

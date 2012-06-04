@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
-using WeBuildStuff.PageManagement.Business;
-using WeBuildStuff.Services.Business;
-
-namespace TomHarvey.Website.Models.Services
+﻿namespace TomHarvey.Website.Models.Services
 {
+    using System.Collections.Generic;
+
+    using WeBuildStuff.CMS.Business.Pages;
+    using WeBuildStuff.CMS.Business.Services;
+
     public class ServicesOverview
     {
         public PageRevision Revision { get; set; }
 
-        public List<ServiceDetail> Services { get; set; }
+        public IEnumerable<ServiceDetail> Services { get; set; }
 
-        public ServicesOverview(PageRevision revision, List<ServiceDetail> services)
+        public ServicesOverview(PageRevision revision, IEnumerable<ServiceDetail> services)
         {
             Revision = revision;
             Services = services;

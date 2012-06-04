@@ -1,11 +1,13 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using TomHarvey.Admin.Business.Portfolio.Interfaces;
-using TomHarvey.Website.Models.Portfolio;
-using WeBuildStuff.PageManagement.Business.Interfaces;
-
-namespace TomHarvey.Website.Controllers
+﻿namespace TomHarvey.Website.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using TomHarvey.Website.Models.Portfolio;
+
+    using WeBuildStuff.CMS.Business.Pages.Interfaces;
+    using WeBuildStuff.CMS.Business.Portfolio.Interfaces;
+
     public class PortfolioController : BaseController
     {
         private readonly IPageDetailsRepository _pageDetailsRepository;
@@ -25,20 +27,20 @@ namespace TomHarvey.Website.Controllers
 
         public ViewResult Index()
         {
-            var page = _pageDetailsRepository.GetPageDetailsByName("Portfolio");
-            var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
-            var portfolioItems = _portfolioItemsRepository.GetAllItems();
+            var page = _pageDetailsRepository.GetByName("Portfolio");
+            var revision = _pageRevisionsRepository.GetLatestRevision(page.Id);
+            var portfolioItems = _portfolioItemsRepository.GetAll();
             return View("Index", new PortfolioOverview(revision, portfolioItems));
         }
 
         public ActionResult Details(string name)
         {
             var item = string.IsNullOrWhiteSpace(name) ? null : _portfolioItemsRepository.GetByUrl(name);
-            if (item == null || item.DeletedByUserId.HasValue || item.DateDeleted.HasValue)
+            if (item == null)
                 return new HttpNotFoundResult();
 
-            var images = _portfolioImagesRepository.GetAllForPortfolioItem(item.Id);
-            var otherPortfolioItems = _portfolioItemsRepository.GetAllItems().Where(pi => pi.Id != item.Id).ToList();
+            var images = _portfolioImagesRepository.GetAllForPortfolio(item.Id);
+            var otherPortfolioItems = _portfolioItemsRepository.GetAll().Where(pi => pi.Id != item.Id).ToList();
             return View("Details", new PortfolioDetails(new PortfolioItemDetails(item, images), otherPortfolioItems));
         }
     }
