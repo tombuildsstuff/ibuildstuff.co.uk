@@ -1,14 +1,17 @@
-﻿using System.IO;
-using System.Web.Mvc;
-using OpenFileSystem.IO;
-using TomHarvey.Core.Helpers;
-using Path = System.IO.Path;
-
-namespace TomHarvey.Website.Controllers
+﻿namespace TomHarvey.Website.Controllers
 {
+    using System.IO;
+    using System.Web.Mvc;
+
+    using OpenFileSystem.IO;
+
+    using TomHarvey.Core.Helpers;
+
     using WeBuildStuff.CMS.Business.Portfolio.Interfaces;
     using WeBuildStuff.CMS.Business.Services.Interfaces;
     using WeBuildStuff.CMS.Business.Settings.Interfaces;
+
+    using Path = System.IO.Path;
 
     public class ImagesController : BaseController
     {
@@ -37,11 +40,11 @@ namespace TomHarvey.Website.Controllers
         public ActionResult Portfolio(int id, int additional)
         {
             var portfolioItem = _portfolioItemsRepository.GetById(id);
-            if (portfolioItem == null || portfolioItem.DateDeleted.HasValue || portfolioItem.DeletedByUserId.HasValue)
+            if (portfolioItem == null)
                 return new HttpNotFoundResult();
 
             var portfolioImage = _portfolioImagesRepository.GetById(additional);
-            if (portfolioImage == null || portfolioImage.DateDeleted.HasValue || portfolioImage.DeletedByUserId.HasValue || portfolioImage.PortfolioId != id)
+            if (portfolioImage == null || portfolioImage.PortfolioId != id)
                 return new HttpNotFoundResult();
 
             var bytes = GetImageContents("Portfolio", string.Format("{0}-Original.jpg", portfolioImage.Id));
@@ -55,11 +58,11 @@ namespace TomHarvey.Website.Controllers
         public ActionResult PortfolioMedium(int id, int additional)
         {
             var portfolioItem = _portfolioItemsRepository.GetById(id);
-            if (portfolioItem == null || portfolioItem.DateDeleted.HasValue || portfolioItem.DeletedByUserId.HasValue)
+            if (portfolioItem == null)
                 return new HttpNotFoundResult();
 
             var portfolioImage = _portfolioImagesRepository.GetById(additional);
-            if (portfolioImage == null || portfolioImage.DateDeleted.HasValue || portfolioImage.DeletedByUserId.HasValue || portfolioImage.PortfolioId != id)
+            if (portfolioImage == null || portfolioImage.PortfolioId != id)
                 return new HttpNotFoundResult();
 
             var bytes = GetImageContents("Portfolio", string.Format("{0}-Medium.jpg", portfolioImage.Id));
@@ -72,18 +75,18 @@ namespace TomHarvey.Website.Controllers
         [ActionName("portfolio-main")]
         public ActionResult PortfolioMain(int id)
         {
-            var main = _portfolioImagesRepository.GetMainForPortfolioItem(id);
+            var main = _portfolioImagesRepository.GetMainForPortfolio(id);
             return RedirectToActionPermanent("portfolio-medium", new { id, additional = main.Id });
         }
 
         public ActionResult Service(int id, int additional)
         {
             var service = _serviceDetailsRepository.GetById(id);
-            if (service == null || service.Deleted)
+            if (service == null)
                 return new HttpNotFoundResult();
 
-            var photo = _servicePhotosRepository.GetServicePhotoById(additional);
-            if (photo == null || photo.Deleted || photo.ServiceId != id)
+            var photo = _servicePhotosRepository.GetById(additional);
+            if (photo == null || photo.ServiceId != id)
                 return new HttpNotFoundResult();
 
             var bytes = GetImageContents("Services", string.Format("{0}-Original.jpg", photo.Id));
@@ -101,13 +104,16 @@ namespace TomHarvey.Website.Controllers
                                             folderName,
                                             fileName);
                 var file = _fileSystem.GetFile(filePath);
+
                 byte[] fileContent;
+
                 using (var fileStream = file.OpenRead())
                     fileContent = fileStream.ToByteArray();
 
                 return fileContent;
-            
-            } catch (FileNotFoundException) {
+            }
+            catch (FileNotFoundException)
+            {
                 return null;
             }
         }

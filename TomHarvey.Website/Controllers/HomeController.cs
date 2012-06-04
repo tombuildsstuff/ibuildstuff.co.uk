@@ -1,9 +1,8 @@
-﻿using System.Web.Mvc;
-
-namespace TomHarvey.Website.Controllers
+﻿namespace TomHarvey.Website.Controllers
 {
     using System.Configuration;
     using System.Linq;
+    using System.Web.Mvc;
 
     using MvcBlog.Repositories;
 
@@ -36,11 +35,11 @@ namespace TomHarvey.Website.Controllers
 
         public ViewResult Index()
         {
-            var page = _pageDetailsRepository.GetPageDetailsByName("Home");
-            var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
+            var page = _pageDetailsRepository.GetByName("Home");
+            var revision = _pageRevisionsRepository.GetLatestRevision(page.Id);
             var blogBaseUrl = ConfigurationManager.AppSettings["BlogBaseUrl"];
             var blogPosts = _postsRepository.GetAllPublishedPosts().OrderByDescending(p => p.PublishDate.Value).Take(10).ToList();
-            var portfolioItems = _portfolioItemsRepository.GetAllItems().OrderBy(p => p.Title).ToList();
+            var portfolioItems = _portfolioItemsRepository.GetAll().OrderBy(p => p.Title).ToList();
             var openSourceProjects = _openSourceProjectDetailsRepository.GetAll().OrderBy(o => o.Title).ToList();
             var model = new HomePageOverview(revision, blogBaseUrl, blogPosts, portfolioItems, openSourceProjects);
             return View("Index", model);

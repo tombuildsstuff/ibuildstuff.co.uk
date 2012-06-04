@@ -1,17 +1,18 @@
-﻿using System.Web.Mvc;
-using TomHarvey.Core.Communication.Emailing;
-using TomHarvey.Website.Domain.EmailGeneration;
-using TomHarvey.Website.Domain.GetInTouch;
-using TomHarvey.Website.Models.GetInTouch;
-
-namespace TomHarvey.Website.Controllers
+﻿namespace TomHarvey.Website.Controllers
 {
+    using System.Web.Mvc;
+
+    using TomHarvey.Core.Communication.Emailing;
+    using TomHarvey.Website.Domain.EmailGeneration;
+    using TomHarvey.Website.Domain.GetInTouch;
+    using TomHarvey.Website.Models.GetInTouch;
+
     using WeBuildStuff.CMS.Business.Pages.Interfaces;
     using WeBuildStuff.CMS.Business.Settings.Interfaces;
 
     public class GetInTouchController : BaseController
     {
-        public readonly IEmailMailerService EmailService;
+        private readonly IEmailMailerService _emailService;
         private readonly ISettingsRepository _settingsRepository;
         private readonly IPageDetailsRepository _pageDetailsRepository;
         private readonly IPageRevisionsRepository _pageRevisionsRepository;
@@ -21,7 +22,7 @@ namespace TomHarvey.Website.Controllers
                                     IPageDetailsRepository pageDetailsRepository,
                                     IPageRevisionsRepository pageRevisionsRepository)
         {
-            EmailService = emailService;
+            _emailService = emailService;
             _settingsRepository = settingsRepository;
             _pageDetailsRepository = pageDetailsRepository;
             _pageRevisionsRepository = pageRevisionsRepository;
@@ -29,8 +30,8 @@ namespace TomHarvey.Website.Controllers
 
         public ViewResult Index()
         {
-            var page = _pageDetailsRepository.GetPageDetailsByName("GetInTouch");
-            var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
+            var page = _pageDetailsRepository.GetByName("GetInTouch");
+            var revision = _pageRevisionsRepository.GetLatestRevision(page.Id);
             var form = new ContactForm();
             return View("index", new GetInTouchOverview(revision, form, null));
         }
@@ -43,19 +44,19 @@ namespace TomHarvey.Website.Controllers
             if (result.IsValid)
             {
                 var email = form.GenerateEmailMessage(_settingsRepository);
-                 EmailService.SendEmail(email, _settingsRepository.CurrentEmailSettings());
+                 _emailService.SendEmail(email, _settingsRepository.CurrentEmailSettings());
                 return RedirectToAction("thanks", "getintouch");
             }
 
-            var page = _pageDetailsRepository.GetPageDetailsByName("GetInTouch");
-            var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
+            var page = _pageDetailsRepository.GetByName("GetInTouch");
+            var revision = _pageRevisionsRepository.GetLatestRevision(page.Id);
             return View("index", new GetInTouchOverview(revision, form, result));
         }
 
         public ViewResult Thanks()
         {
-            var page = _pageDetailsRepository.GetPageDetailsByName("GetInTouchThanks");
-            var revision = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
+            var page = _pageDetailsRepository.GetByName("GetInTouchThanks");
+            var revision = _pageRevisionsRepository.GetLatestRevision(page.Id);
             return View("thanks", revision);
         }
     }

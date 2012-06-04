@@ -34,19 +34,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+    <Reference Include="Castle.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\CastleWindsor\dotNet40\Castle.Core.dll</HintPath>
+      <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+    <Reference Include="Castle.Windsor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\CastleWindsor\dotNet40\Castle.Windsor.dll</HintPath>
+      <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation">
-      <HintPath>..\..\Binaries\FluentValidation\FluentValidation\FluentValidation.dll</HintPath>
+    <Reference Include="FluentValidation, Version=3.3.1.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.3.3.1.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation.Mvc">
-      <HintPath>..\..\Binaries\FluentValidation\MVC\MVC3\FluentValidation.Mvc.dll</HintPath>
+    <Reference Include="FluentValidation.Mvc, Version=3.3.1.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.MVC3.3.3.1.0\lib\Net40\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\openfilesystem.1.0.0.61263243\lib\Mono.Posix.dll</HintPath>
     </Reference>
     <Reference Include="MvcBlog.Entities">
       <HintPath>..\..\MvcBlog\MvcBlog.Entities\bin\Debug\MvcBlog.Entities.dll</HintPath>
@@ -58,8 +63,7 @@
       <HintPath>..\..\MvcBlog\MvcBlog.Repositories.SimpleData\bin\Debug\MvcBlog.Repositories.SimpleData.dll</HintPath>
     </Reference>
     <Reference Include="OpenFileSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\OpenFileSystem\OpenFileSystem.dll</HintPath>
+      <HintPath>..\packages\openfilesystem.1.0.0.61263243\lib\OpenFileSystem.dll</HintPath>
     </Reference>
     <Reference Include="Simple.Data, Version=0.14.0.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -80,6 +84,7 @@
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml" />
     <Reference Include="TomHarvey.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TomHarvey.Core\TomHarvey.Core\bin\Debug\TomHarvey.Core.dll</HintPath>

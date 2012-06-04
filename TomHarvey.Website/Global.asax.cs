@@ -66,7 +66,7 @@
             {
                 var assemblies = AllTypes.FromAssemblyInDirectory(new AssemblyFilter(HttpRuntime.BinDirectory));
                 _container = new WindsorContainer();
-                _container.Register(assemblies.BasedOn<IController>().Configure(c => c.LifeStyle.Transient));
+                _container.Register(assemblies.BasedOn<IController>().LifestyleTransient());
 
                 _container.Register(Component.For<IPageDetailsRepository>().ImplementedBy<PageDetailsRepository>());
                 _container.Register(Component.For<IPageRevisionsRepository>().ImplementedBy<PageRevisionsRepository>());

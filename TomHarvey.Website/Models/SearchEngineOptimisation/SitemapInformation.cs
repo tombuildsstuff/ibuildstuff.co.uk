@@ -8,11 +8,14 @@ namespace TomHarvey.Website.Models.SearchEngineOptimisation
 
     public class SitemapInformation : AbstractSearchEngineModel
     {
-        public List<PageDetail> Pages { get; set; }
+        public IEnumerable<PageDetail> Pages { get; set; }
+        
         public IEnumerable<PortfolioItem> PortfolioItems { get; set; }
-        public List<ServiceDetail> Services { get; set; }
+        
+        public IEnumerable<ServiceDetail> Services { get; set; }
 
-        public SitemapInformation(string websiteBaseUriStem, List<PageDetail> pages, IEnumerable<PortfolioItem> portfolioItems, List<ServiceDetail> services) : base(websiteBaseUriStem)
+        public SitemapInformation(string websiteBaseUriStem, IEnumerable<PageDetail> pages, IEnumerable<PortfolioItem> portfolioItems, IEnumerable<ServiceDetail> services)
+        : base(websiteBaseUriStem)
         {
             Pages = pages;
             PortfolioItems = portfolioItems;

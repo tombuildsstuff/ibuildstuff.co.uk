@@ -9,9 +9,9 @@
     {
         public PageRevision Revision { get; set; }
 
-        public List<ServiceDetail> Services { get; set; }
+        public IEnumerable<ServiceDetail> Services { get; set; }
 
-        public ServicesOverview(PageRevision revision, List<ServiceDetail> services)
+        public ServicesOverview(PageRevision revision, IEnumerable<ServiceDetail> services)
         {
             Revision = revision;
             Services = services;

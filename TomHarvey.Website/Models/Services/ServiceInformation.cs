@@ -7,10 +7,12 @@ namespace TomHarvey.Website.Models.Services
     public class ServiceInformation
     {
         public ServiceDetail Service { get; set; }
-        public List<ServicePhoto> Photos { get; set; }
-        public List<ServiceDetail> Services { get; set; }
+        
+        public IEnumerable<ServicePhoto> Photos { get; set; }
 
-        public ServiceInformation(ServiceDetail service, List<ServicePhoto> photos, List<ServiceDetail> services)
+        public IEnumerable<ServiceDetail> Services { get; set; }
+
+        public ServiceInformation(ServiceDetail service, IEnumerable<ServicePhoto> photos, IEnumerable<ServiceDetail> services)
         {
             Service = service;
             Photos = photos;

@@ -39,9 +39,9 @@ namespace TomHarvey.Website.Controllers
 
         public ActionResult Sitemap()
         {
-            var pages = _pageDetailsRepository.GetAllPagesToDisplayInSearchEngine();
-            var portfolioItems = _portfolioItemsRepository.GetAllItems();
-            var services = _serviceDetailsRepository.GetAllServiceDetails();
+            var pages = _pageDetailsRepository.GetAllToDisplayInSearchEngine();
+            var portfolioItems = _portfolioItemsRepository.GetAll();
+            var services = _serviceDetailsRepository.GetAll();
             var websiteBaseUrl = _settingsRepository.WebsiteBaseUrl();
             ControllerContext.HttpContext.Response.ContentType = "text/xml";
             return View("sitemap", new SitemapInformation(websiteBaseUrl, pages, portfolioItems, services));

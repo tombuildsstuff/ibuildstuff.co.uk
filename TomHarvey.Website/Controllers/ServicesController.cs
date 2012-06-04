@@ -28,21 +28,21 @@
 
         public ViewResult Index()
         {
-            var page = _pageDetailsRepository.GetPageDetailsByName("Services");
-            var content = _pageRevisionsRepository.GetLatestRevisionForPage(page.Id);
-            var services = _serviceDetailsRepository.GetAllServiceDetails();
+            var page = _pageDetailsRepository.GetByName("Services");
+            var content = _pageRevisionsRepository.GetLatestRevision(page.Id);
+            var services = _serviceDetailsRepository.GetAll();
             return View("Index", new ServicesOverview(content, services));
         }
 
         public ActionResult Details(string name)
         {
             var service = string.IsNullOrWhiteSpace(name) ? null : _serviceDetailsRepository.GetByUrl(name);
-            if (service == null || service.Deleted)
+            if (service == null)
                 return new HttpNotFoundResult();
 
 
-            var otherServices = _serviceDetailsRepository.GetAllServiceDetails().Where(s => s.Id != service.Id).ToList();
-            var photos = _servicePhotosRepository.GetAllPhotosForService(service.Id);
+            var otherServices = _serviceDetailsRepository.GetAll().Where(s => s.Id != service.Id).ToList();
+            var photos = _servicePhotosRepository.GetAllForService(service.Id);
             return View("Details", new ServiceInformation(service, photos, otherServices));
         }
     }
