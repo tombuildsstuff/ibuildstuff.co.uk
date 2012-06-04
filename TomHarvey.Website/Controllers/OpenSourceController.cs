@@ -37,7 +37,7 @@
         public ActionResult Details(string id)
         {
             var project = _openSourceProjectDetailsRepository.GetByUrl(id);
-            if (project == null || project.DeletedByUserId.HasValue || project.DateDeleted.HasValue)
+            if (project == null)
                 return HttpNotFound();
 
             var links = _openSourceProjectLinksRepository.GetAllForProject(project.Id);

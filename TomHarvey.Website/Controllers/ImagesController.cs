@@ -5,11 +5,10 @@
 
     using OpenFileSystem.IO;
 
-    using TomHarvey.Core.Helpers;
-
     using WeBuildStuff.CMS.Business.Portfolio.Interfaces;
     using WeBuildStuff.CMS.Business.Services.Interfaces;
     using WeBuildStuff.CMS.Business.Settings.Interfaces;
+    using WeBuildStuff.CMS.Domain.Helpers;
 
     using Path = System.IO.Path;
 
