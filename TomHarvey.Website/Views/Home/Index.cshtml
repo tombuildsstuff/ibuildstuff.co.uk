@@ -1,8 +1,0 @@
-﻿@model TomHarvey.Website.Models.Home.HomePageOverview
-
-@{
-    ViewBag.Title = @Model.Revision.Title;
-    ViewBag.Sidebar = @Html.Partial("HomePageSidebar", Model);
-}
-
-@Html.Raw(Model.Revision.Content)

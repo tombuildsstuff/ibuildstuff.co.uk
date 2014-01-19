@@ -1,9 +1,0 @@
-﻿@using TomHarvey.Website.Models.OpenSource
-@model OpenSourceProjectDetails
-
-@{
-    ViewBag.Title = Model.Project.Title;
-    ViewBag.SideBar = Html.Partial("OpenSourceDetailsSidebar", Model);
-}
-
-@Html.Raw(Model.Project.Description)

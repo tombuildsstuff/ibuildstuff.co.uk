@@ -1,0 +1,70 @@
+body {
+  background: #191E2A;
+  color: #fff;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 12px
+}
+
+header {
+  background: url('images/logo.png') center center no-repeat;
+  height: 45px;
+  margin: 45px auto
+}
+
+/* apps */
+article {
+  margin: auto;
+  margin-bottom: 20px;
+  width: 715px
+}
+.apps ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0
+}
+
+.apps li {
+  float: left;
+  padding: 10px
+}
+
+/* Data Tables */
+dl {
+  min-height: 40px
+}
+dt {
+  float: left;
+  text-align: right;
+  width: 40%
+}
+
+dt img {
+  float: right
+}
+
+dd {
+  float: right;
+  width: 54%
+}
+
+/* Links */
+a img {
+  border: 1px solid #fff
+}
+
+a {
+  color: #fff
+}
+
+/* Typography */
+h1 {
+  display: none
+}
+h3 {
+  margin: 0;
+  padding: 0
+}
+
+.clear {
+  clear: both
+}

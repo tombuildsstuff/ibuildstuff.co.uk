@@ -1,9 +1,0 @@
-﻿@using TomHarvey.Website.Models.Services
-@model ServiceInformation
-
-@{
-    ViewBag.Title = Model.Service.Title;
-    ViewBag.Sidebar = @Html.Partial("ContactSidebar");
-}
-
-@Html.Raw(Model.Service.Description)
